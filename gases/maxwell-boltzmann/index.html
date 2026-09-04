@@ -1063,13 +1063,15 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;input id=&quot;mb-ea&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;40&quot; step=&quot;1&quot; value=&quot;20&quot;&gt;
     &lt;/label&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;mb-chart-wrap&quot;&gt;&lt;svg id=&quot;mb-chart&quot; role=&quot;img&quot; aria-labelledby=&quot;mb-chart-title mb-chart-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
-  &lt;div class=&quot;mb-explanation&quot;&gt;
+  &lt;div class=&quot;mb-content&quot;&gt;
+    &lt;div class=&quot;mb-chart-wrap&quot;&gt;&lt;svg id=&quot;mb-chart&quot; role=&quot;img&quot; aria-labelledby=&quot;mb-chart-title mb-chart-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+    &lt;aside class=&quot;mb-explanation&quot; aria-label=&quot;Plot interpretation&quot;&gt;
     &lt;h3&gt;How to interpret the plot&lt;/h3&gt;
-    &lt;p&gt;The solid blue curve is the selected condition; the dashed grey curve is the labelled reference condition. The vertical scale is relative probability density, so compare the &lt;em&gt;shape&lt;/em&gt;, peak position, and spread rather than its numerical height. At very low temperatures, treat this as an ideal-gas model: a real substance may not remain gaseous at the chosen pressure.&lt;/p&gt;
+    &lt;p&gt;Blue is the selected condition; dashed grey is the reference. Compare peak, spread and tail—not absolute height. This is an ideal-gas model.&lt;/p&gt;
     &lt;h3 id=&quot;mb-guidance-title&quot;&gt;Current graph: theory&lt;/h3&gt;
     &lt;p id=&quot;mb-guidance&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
     &lt;p id=&quot;mb-status&quot; class=&quot;mb-result&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+    &lt;/aside&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1078,7 +1080,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   #mb-explorer .viz-controls { align-items: end; gap: 14px; }
   #mb-explorer .form-label { min-width: 155px; flex: 1 1 155px; }
   #mb-explorer output { float: right; color: var(--muted-foreground); }
-  #mb-explorer .mb-chart-wrap { width: 100%; }
+  #mb-explorer .mb-content { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(230px, .8fr); gap: 18px; align-items: stretch; margin-top: 14px; }
+  #mb-explorer .mb-chart-wrap { width: 100%; grid-column: 1; grid-row: 1; }
   #mb-explorer svg { width: 100%; height: 440px; display: block; }
   #mb-explorer .mb-axis { color: var(--foreground); }
   #mb-explorer .mb-axis path, #mb-explorer .mb-axis line { stroke: var(--border); }
@@ -1089,11 +1092,12 @@ html&gt;body{padding:0}&lt;/style&gt;
   #mb-explorer .mb-ea { stroke: var(--destructive); stroke-width: 2; stroke-dasharray: 4 4; }
   #mb-explorer .mb-area { fill: var(--viz-series-1); opacity: .18; }
   #mb-explorer .mb-frame { fill: none; stroke: var(--border); }
-  #mb-explorer .mb-explanation { margin-top: 14px; padding: 12px 14px; border-left: 4px solid var(--viz-series-1); background: var(--muted); }
+  #mb-explorer .mb-explanation { grid-column: 2; grid-row: 1; align-self: center; padding: 12px 14px; border-left: 4px solid var(--viz-series-1); background: var(--muted); }
   #mb-explorer .mb-explanation h3 { margin: 0 0 6px; font-size: 18px; }
   #mb-explorer .mb-explanation h3:not(:first-child) { margin-top: 14px; }
   #mb-explorer .mb-explanation p { margin: 6px 0 0; font-size: 16px; line-height: 1.5; }
   #mb-explorer .mb-result { font-weight: 600; }
+  @media (max-width: 680px) { #mb-explorer .mb-content { grid-template-columns: 1fr; } #mb-explorer .mb-chart-wrap, #mb-explorer .mb-explanation { grid-column: 1; grid-row: auto; } }
   @media (max-width: 420px) { #mb-explorer svg { height: 360px; } }
 &lt;/style&gt;
 
@@ -1121,19 +1125,19 @@ html&gt;body{padding:0}&lt;/style&gt;
   const guidanceByControl = {
     mode: {
       title: &#x27;Plot type: theory&#x27;,
-      text: &#x27;The &lt;strong&gt;kinetic-energy plot&lt;/strong&gt; asks how molecular translational energies are distributed. The &lt;strong&gt;speed plot&lt;/strong&gt; asks how fast molecules move. At a fixed temperature, the energy distribution is independent of molecular mass, whereas the speed distribution depends strongly on mass.&#x27;
+      text: &#x27;Energy shows the distribution of translational energy; speed shows how fast molecules move. At fixed temperature, energy is mass-independent but speed is not.&#x27;
     },
     temperature: {
       title: &#x27;Temperature: theory&#x27;,
-      text: &#x27;Increasing temperature increases the mean translational kinetic energy, &lt;em&gt;⟨E&lt;sub&gt;k&lt;/sub&gt;⟩ = 3RT/2&lt;/em&gt; per mole. The distribution broadens and its high-energy tail grows. Consequently, a larger proportion of molecules can exceed a fixed activation-energy threshold.&#x27;
+      text: &#x27;Higher &lt;em&gt;T&lt;/em&gt; raises mean translational energy, &lt;em&gt;3RT/2&lt;/em&gt;, broadens the curve, and increases the high-energy tail.&#x27;
     },
     mass: {
       title: &#x27;Molar mass: theory&#x27;,
-      text: &#x27;At the same temperature, every ideal gas has the same mean translational kinetic energy, &lt;em&gt;3RT/2&lt;/em&gt;. A lighter molecule therefore moves faster: its most probable speed follows &lt;em&gt;v&lt;sub&gt;mp&lt;/sub&gt; = √(2RT/M)&lt;/em&gt;. Mass changes the speed distribution, not the kinetic-energy distribution at a given temperature.&#x27;
+      text: &#x27;At the same &lt;em&gt;T&lt;/em&gt;, all ideal gases have mean energy &lt;em&gt;3RT/2&lt;/em&gt;. Lower &lt;em&gt;M&lt;/em&gt; gives higher &lt;em&gt;v&lt;sub&gt;mp&lt;/sub&gt; = √(2RT/M)&lt;/em&gt;; only the speed plot changes.&#x27;
     },
     ea: {
       title: &#x27;Activation energy: theory&#x27;,
-      text: &#x27;Activation energy is the minimum collision energy required to access a reaction pathway. The shaded tail represents molecules with &lt;em&gt;E ≥ E&lt;sub&gt;a&lt;/sub&gt;&lt;/em&gt;. This is an energetic criterion only: successful reaction can also require suitable molecular orientation, collision frequency, and a favourable steric factor.&#x27;
+      text: &#x27;The shaded tail has &lt;em&gt;E ≥ E&lt;sub&gt;a&lt;/sub&gt;&lt;/em&gt;. These molecules have sufficient energy, but orientation and collision frequency also affect reaction.&#x27;
     }
   };
 
@@ -1141,12 +1145,12 @@ html&gt;body{padding:0}&lt;/style&gt;
     if (mode.value === &#x27;energy&#x27;) {
       return {
         title: &#x27;Current graph: theory&#x27;,
-        text: &#x27;The energy distribution follows the Maxwell–Boltzmann form &lt;em&gt;f(E) ∝ √E exp(−E/RT)&lt;/em&gt;. Examine how changing temperature changes the high-energy tail, then relate the shaded fraction to the energetic contribution to the Arrhenius rate constant.&#x27;
+        text: &#x27;&lt;em&gt;f(E) ∝ √E exp(−E/RT)&lt;/em&gt;. Focus on the high-energy tail: it gives the energetic contribution to the Arrhenius rate constant.&#x27;
       };
     }
     return {
       title: &#x27;Current graph: theory&#x27;,
-      text: &#x27;The speed distribution follows &lt;em&gt;f(v) ∝ v² exp(−Mv²/2RT)&lt;/em&gt;. Compare peak positions and widths: at the same temperature, a lower molar mass produces a higher most probable speed, while the mean kinetic energy remains &lt;em&gt;3RT/2&lt;/em&gt;.&#x27;
+      text: &#x27;&lt;em&gt;f(v) ∝ v² exp(−Mv²/2RT)&lt;/em&gt;. Lower molar mass shifts the peak to higher speed; mean kinetic energy remains &lt;em&gt;3RT/2&lt;/em&gt;.&#x27;
     };
   }
 
