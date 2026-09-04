@@ -1,0 +1,170 @@
+/* physchem-interactives shared site styles */
+
+:root {
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-text: #1b1f23;
+  --color-muted: #55606b;
+  --color-primary: #0b5fa5;
+  --color-primary-dark: #08426f;
+  --color-border: #d7dce1;
+  --focus-ring: 3px solid #ffbf47;
+  --radius: 0.5rem;
+  --max-width: 64rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-dark);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+  border-radius: 0 0 var(--radius) 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.site-header {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+  padding: 1.5rem 1rem;
+}
+
+.site-header .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.site-header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.site-header p {
+  margin: 0;
+  color: #d9e8f5;
+}
+
+.site-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.topic-section {
+  margin-bottom: 2.5rem;
+}
+
+.topic-section h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activity-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.activity-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.activity-card p {
+  margin: 0 0 1rem 0;
+  color: var(--color-muted);
+  flex-grow: 1;
+}
+
+.activity-card a.button-link {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.activity-card a.button-link:hover,
+.activity-card a.button-link:focus {
+  background-color: var(--color-primary-dark);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.activity-page main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.placeholder-note {
+  background-color: #fff8e5;
+  border: 1px solid #f0d585;
+  border-radius: var(--radius);
+  padding: 1rem;
+}
