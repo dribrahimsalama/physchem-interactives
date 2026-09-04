@@ -1054,17 +1054,23 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;/select&gt;
     &lt;/label&gt;
     &lt;label class=&quot;form-label&quot; for=&quot;mb-temperature&quot;&gt;Temperature &lt;output id=&quot;mb-temperature-value&quot; class=&quot;tabular-nums&quot;&gt;450 K&lt;/output&gt;
-      &lt;input id=&quot;mb-temperature&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;200&quot; max=&quot;900&quot; step=&quot;10&quot; value=&quot;450&quot;&gt;
+      &lt;input id=&quot;mb-temperature&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;100&quot; max=&quot;900&quot; step=&quot;10&quot; value=&quot;450&quot;&gt;
     &lt;/label&gt;
     &lt;label class=&quot;form-label&quot; for=&quot;mb-mass&quot;&gt;Molar mass &lt;output id=&quot;mb-mass-value&quot; class=&quot;tabular-nums&quot;&gt;28 g mol⁻¹&lt;/output&gt;
-      &lt;input id=&quot;mb-mass&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;4&quot; max=&quot;80&quot; step=&quot;1&quot; value=&quot;28&quot;&gt;
+      &lt;input id=&quot;mb-mass&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;4&quot; max=&quot;150&quot; step=&quot;1&quot; value=&quot;28&quot;&gt;
     &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot; for=&quot;mb-ea&quot;&gt;Activation energy &lt;output id=&quot;mb-ea-value&quot; class=&quot;tabular-nums&quot;&gt;60 kJ mol⁻¹&lt;/output&gt;
-      &lt;input id=&quot;mb-ea&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;10&quot; max=&quot;120&quot; step=&quot;1&quot; value=&quot;60&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;mb-ea&quot;&gt;Activation energy &lt;output id=&quot;mb-ea-value&quot; class=&quot;tabular-nums&quot;&gt;20 kJ mol⁻¹&lt;/output&gt;
+      &lt;input id=&quot;mb-ea&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;40&quot; step=&quot;1&quot; value=&quot;20&quot;&gt;
     &lt;/label&gt;
   &lt;/div&gt;
   &lt;div class=&quot;mb-chart-wrap&quot;&gt;&lt;svg id=&quot;mb-chart&quot; role=&quot;img&quot; aria-labelledby=&quot;mb-chart-title mb-chart-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
-  &lt;div id=&quot;mb-status&quot; class=&quot;text-small&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;mb-explanation&quot;&gt;
+    &lt;h3&gt;How to interpret the plot&lt;/h3&gt;
+    &lt;p&gt;The solid blue curve is the selected condition; the dashed grey curve is the labelled reference condition. The vertical scale is relative probability density, so compare the &lt;em&gt;shape&lt;/em&gt;, peak position, and spread rather than its numerical height. At very low temperatures, treat this as an ideal-gas model: a real substance may not remain gaseous at the chosen pressure.&lt;/p&gt;
+    &lt;h3 id=&quot;mb-guidance-title&quot;&gt;Current graph: theory&lt;/h3&gt;
+    &lt;p id=&quot;mb-guidance&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+    &lt;p id=&quot;mb-status&quot; class=&quot;mb-result&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
@@ -1073,17 +1079,22 @@ html&gt;body{padding:0}&lt;/style&gt;
   #mb-explorer .form-label { min-width: 155px; flex: 1 1 155px; }
   #mb-explorer output { float: right; color: var(--muted-foreground); }
   #mb-explorer .mb-chart-wrap { width: 100%; }
-  #mb-explorer svg { width: 100%; height: 360px; display: block; }
+  #mb-explorer svg { width: 100%; height: 440px; display: block; }
   #mb-explorer .mb-axis { color: var(--foreground); }
   #mb-explorer .mb-axis path, #mb-explorer .mb-axis line { stroke: var(--border); }
-  #mb-explorer .mb-axis text { fill: var(--foreground); font-size: 12px; }
-  #mb-explorer .mb-axis-title, #mb-explorer .mb-direct-label { fill: var(--foreground); font-size: 12px; }
+  #mb-explorer .mb-axis text { fill: var(--foreground); font-size: 15px; }
+  #mb-explorer .mb-axis-title, #mb-explorer .mb-direct-label { fill: var(--foreground); font-size: 16px; }
   #mb-explorer .mb-reference { fill: none; stroke: var(--muted-foreground); stroke-width: 2; stroke-dasharray: 5 4; }
   #mb-explorer .mb-current { fill: none; stroke: var(--viz-series-1); stroke-width: 3; }
   #mb-explorer .mb-ea { stroke: var(--destructive); stroke-width: 2; stroke-dasharray: 4 4; }
   #mb-explorer .mb-area { fill: var(--viz-series-1); opacity: .18; }
   #mb-explorer .mb-frame { fill: none; stroke: var(--border); }
-  @media (max-width: 420px) { #mb-explorer svg { height: 320px; } }
+  #mb-explorer .mb-explanation { margin-top: 14px; padding: 12px 14px; border-left: 4px solid var(--viz-series-1); background: var(--muted); }
+  #mb-explorer .mb-explanation h3 { margin: 0 0 6px; font-size: 18px; }
+  #mb-explorer .mb-explanation h3:not(:first-child) { margin-top: 14px; }
+  #mb-explorer .mb-explanation p { margin: 6px 0 0; font-size: 16px; line-height: 1.5; }
+  #mb-explorer .mb-result { font-weight: 600; }
+  @media (max-width: 420px) { #mb-explorer svg { height: 360px; } }
 &lt;/style&gt;
 
 &lt;script src=&quot;https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js&quot;&gt;&lt;/script&gt;
@@ -1096,6 +1107,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   const mass = root.querySelector(&#x27;#mb-mass&#x27;);
   const ea = root.querySelector(&#x27;#mb-ea&#x27;);
   const status = root.querySelector(&#x27;#mb-status&#x27;);
+  const guidanceTitle = root.querySelector(&#x27;#mb-guidance-title&#x27;);
+  const guidance = root.querySelector(&#x27;#mb-guidance&#x27;);
   const outputs = {
     temperature: root.querySelector(&#x27;#mb-temperature-value&#x27;),
     mass: root.querySelector(&#x27;#mb-mass-value&#x27;),
@@ -1103,6 +1116,50 @@ html&gt;body{padding:0}&lt;/style&gt;
   };
   const R = 8.314;
   const N = 260;
+  let activeGuidance = null;
+
+  const guidanceByControl = {
+    mode: {
+      title: &#x27;Plot type: theory&#x27;,
+      text: &#x27;The &lt;strong&gt;kinetic-energy plot&lt;/strong&gt; asks how molecular translational energies are distributed. The &lt;strong&gt;speed plot&lt;/strong&gt; asks how fast molecules move. At a fixed temperature, the energy distribution is independent of molecular mass, whereas the speed distribution depends strongly on mass.&#x27;
+    },
+    temperature: {
+      title: &#x27;Temperature: theory&#x27;,
+      text: &#x27;Increasing temperature increases the mean translational kinetic energy, &lt;em&gt;⟨E&lt;sub&gt;k&lt;/sub&gt;⟩ = 3RT/2&lt;/em&gt; per mole. The distribution broadens and its high-energy tail grows. Consequently, a larger proportion of molecules can exceed a fixed activation-energy threshold.&#x27;
+    },
+    mass: {
+      title: &#x27;Molar mass: theory&#x27;,
+      text: &#x27;At the same temperature, every ideal gas has the same mean translational kinetic energy, &lt;em&gt;3RT/2&lt;/em&gt;. A lighter molecule therefore moves faster: its most probable speed follows &lt;em&gt;v&lt;sub&gt;mp&lt;/sub&gt; = √(2RT/M)&lt;/em&gt;. Mass changes the speed distribution, not the kinetic-energy distribution at a given temperature.&#x27;
+    },
+    ea: {
+      title: &#x27;Activation energy: theory&#x27;,
+      text: &#x27;Activation energy is the minimum collision energy required to access a reaction pathway. The shaded tail represents molecules with &lt;em&gt;E ≥ E&lt;sub&gt;a&lt;/sub&gt;&lt;/em&gt;. This is an energetic criterion only: successful reaction can also require suitable molecular orientation, collision frequency, and a favourable steric factor.&#x27;
+    }
+  };
+
+  function defaultGuidance() {
+    if (mode.value === &#x27;energy&#x27;) {
+      return {
+        title: &#x27;Current graph: theory&#x27;,
+        text: &#x27;The energy distribution follows the Maxwell–Boltzmann form &lt;em&gt;f(E) ∝ √E exp(−E/RT)&lt;/em&gt;. Examine how changing temperature changes the high-energy tail, then relate the shaded fraction to the energetic contribution to the Arrhenius rate constant.&#x27;
+      };
+    }
+    return {
+      title: &#x27;Current graph: theory&#x27;,
+      text: &#x27;The speed distribution follows &lt;em&gt;f(v) ∝ v² exp(−Mv²/2RT)&lt;/em&gt;. Compare peak positions and widths: at the same temperature, a lower molar mass produces a higher most probable speed, while the mean kinetic energy remains &lt;em&gt;3RT/2&lt;/em&gt;.&#x27;
+    };
+  }
+
+  function showGuidance(topic) {
+    const content = guidanceByControl[topic] || defaultGuidance();
+    guidanceTitle.textContent = content.title;
+    guidance.innerHTML = content.text;
+  }
+
+  function restoreGuidance() {
+    activeGuidance = null;
+    showGuidance();
+  }
 
   function energyDensity(E, T) {
     const rt = R * T / 1000;
@@ -1130,15 +1187,23 @@ html&gt;body{padding:0}&lt;/style&gt;
 
     const bounds = root.querySelector(&#x27;.mb-chart-wrap&#x27;).getBoundingClientRect();
     const width = Math.max(320, Math.floor(bounds.width));
-    const height = width &lt; 430 ? 320 : 360;
-    const margin = { top: 30, right: 36, bottom: 62, left: 72 };
-    const xMax = energyMode ? Math.max(140, Ea * 1.35, 16 * R * T / 1000) : 1500;
+    const height = width &lt; 430 ? 360 : 440;
+    const margin = { top: 70, right: 42, bottom: 76, left: 86 };
+    // Keep the energy axis fixed at 40 kJ mol⁻¹, matching the Eₐ control, so
+    // each change in Eₐ remains visually meaningful without rescaling the plot.
+    // For speeds, adapt the domain so the lightest selected gas stays visible.
+    const fastestMass = Math.min(M, 28);
+    const mostProbableSpeed = Math.sqrt((2 * R * T) / (fastestMass / 1000));
+    const speedMax = Math.max(1400, Math.ceil((3 * mostProbableSpeed) / 100) * 100);
+    const xMax = energyMode ? 40 : speedMax;
     const xs = d3.range(N + 1).map(i =&gt; i * xMax / N);
     const current = xs.map(x =&gt; ({ x, y: energyMode ? energyDensity(x, T) : speedDensity(x, T, M) }));
     const reference = xs.map(x =&gt; ({ x, y: energyMode ? energyDensity(x, 300) : speedDensity(x, T, 28) }));
     const yMax = d3.max([...current, ...reference], d =&gt; d.y) * 1.08;
+    const plotCurrent = current.map(d =&gt; ({ x: d.x, y: d.y / yMax }));
+    const plotReference = reference.map(d =&gt; ({ x: d.x, y: d.y / yMax }));
     const x = d3.scaleLinear().domain([0, xMax]).range([margin.left, width - margin.right]);
-    const y = d3.scaleLinear().domain([0, yMax]).range([height - margin.bottom, margin.top]);
+    const y = d3.scaleLinear().domain([0, 1]).range([height - margin.bottom, margin.top]);
     const line = d3.line().x(d =&gt; x(d.x)).y(d =&gt; y(d.y));
     const area = d3.area().x(d =&gt; x(d.x)).y0(y(0)).y1(d =&gt; y(d.y));
     chart.attr(&#x27;viewBox&#x27;, `0 0 ${width} ${height}`).attr(&#x27;preserveAspectRatio&#x27;, &#x27;xMidYMid meet&#x27;);
@@ -1146,31 +1211,44 @@ html&gt;body{padding:0}&lt;/style&gt;
     chart.append(&#x27;title&#x27;).attr(&#x27;id&#x27;, &#x27;mb-chart-title&#x27;).text(energyMode ? &#x27;Maxwell–Boltzmann kinetic-energy distributions&#x27; : &#x27;Maxwell–Boltzmann speed distributions&#x27;);
     chart.append(&#x27;desc&#x27;).attr(&#x27;id&#x27;, &#x27;mb-chart-desc&#x27;).text(energyMode ? &#x27;The solid curve shows the selected temperature. The dashed curve is 300 kelvin. The shaded area is the fraction with energy at least the selected activation energy.&#x27; : &#x27;The solid curve shows the selected gas. The dashed curve is a 28 gram per mole gas at the same temperature.&#x27;);
     chart.append(&#x27;rect&#x27;).attr(&#x27;class&#x27;, &#x27;mb-frame&#x27;).attr(&#x27;x&#x27;, margin.left).attr(&#x27;y&#x27;, margin.top).attr(&#x27;width&#x27;, width - margin.left - margin.right).attr(&#x27;height&#x27;, height - margin.top - margin.bottom);
+    const selectedLabel = energyMode ? `${T} K selected` : `${M} g mol⁻¹ selected`;
+    const referenceLabel = energyMode ? &#x27;300 K reference&#x27; : &#x27;28 g mol⁻¹ reference&#x27;;
+    chart.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;mb-current&#x27;).attr(&#x27;x1&#x27;, margin.left).attr(&#x27;x2&#x27;, margin.left + 28).attr(&#x27;y1&#x27;, 23).attr(&#x27;y2&#x27;, 23);
+    chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-direct-label&#x27;).attr(&#x27;x&#x27;, margin.left + 36).attr(&#x27;y&#x27;, 29).text(selectedLabel);
+    chart.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;mb-reference&#x27;).attr(&#x27;x1&#x27;, margin.left).attr(&#x27;x2&#x27;, margin.left + 28).attr(&#x27;y1&#x27;, 49).attr(&#x27;y2&#x27;, 49);
+    chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-direct-label&#x27;).attr(&#x27;x&#x27;, margin.left + 36).attr(&#x27;y&#x27;, 55).text(referenceLabel);
     if (energyMode) {
-      const reactive = current.filter(d =&gt; d.x &gt;= Ea);
+      const reactive = plotCurrent.filter(d =&gt; d.x &gt;= Ea);
       chart.append(&#x27;path&#x27;).datum(reactive).attr(&#x27;class&#x27;, &#x27;mb-area&#x27;).attr(&#x27;d&#x27;, area);
       chart.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;mb-ea&#x27;).attr(&#x27;x1&#x27;, x(Ea)).attr(&#x27;x2&#x27;, x(Ea)).attr(&#x27;y1&#x27;, margin.top).attr(&#x27;y2&#x27;, height - margin.bottom);
       chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-direct-label&#x27;).attr(&#x27;x&#x27;, Math.min(width - margin.right - 10, x(Ea) + 6)).attr(&#x27;y&#x27;, margin.top + 14).text(&#x27;Eₐ&#x27;);
     }
-    chart.append(&#x27;path&#x27;).datum(reference).attr(&#x27;class&#x27;, &#x27;mb-reference&#x27;).attr(&#x27;d&#x27;, line);
-    chart.append(&#x27;path&#x27;).datum(current).attr(&#x27;class&#x27;, &#x27;mb-current&#x27;).attr(&#x27;d&#x27;, line);
+    chart.append(&#x27;path&#x27;).datum(plotReference).attr(&#x27;class&#x27;, &#x27;mb-reference&#x27;).attr(&#x27;d&#x27;, line);
+    chart.append(&#x27;path&#x27;).datum(plotCurrent).attr(&#x27;class&#x27;, &#x27;mb-current&#x27;).attr(&#x27;d&#x27;, line);
     chart.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;mb-axis&#x27;).attr(&#x27;transform&#x27;, `translate(0,${height - margin.bottom})`).call(d3.axisBottom(x).ticks(width &lt; 430 ? 4 : 6));
-    chart.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;mb-axis&#x27;).attr(&#x27;transform&#x27;, `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(&#x27;.2~g&#x27;)));
+    chart.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;mb-axis&#x27;).attr(&#x27;transform&#x27;, `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(&#x27;.1f&#x27;)));
     chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-axis-title&#x27;).attr(&#x27;data-axis&#x27;, &#x27;x&#x27;).attr(&#x27;x&#x27;, (margin.left + width - margin.right) / 2).attr(&#x27;y&#x27;, height - 14).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(energyMode ? &#x27;Molecular kinetic energy (kJ mol⁻¹)&#x27; : &#x27;Molecular speed (m s⁻¹)&#x27;);
-    chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-axis-title&#x27;).attr(&#x27;data-axis&#x27;, &#x27;y&#x27;).attr(&#x27;transform&#x27;, `translate(18 ${(margin.top + height - margin.bottom) / 2}) rotate(-90)`).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(&#x27;Probability density&#x27;);
-    chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-direct-label&#x27;).attr(&#x27;x&#x27;, width - margin.right - 4).attr(&#x27;y&#x27;, y(current[Math.floor(N * .78)].y) - 8).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).text(energyMode ? `${T} K` : `${M} g mol⁻¹`);
-    chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-direct-label&#x27;).attr(&#x27;x&#x27;, width - margin.right - 4).attr(&#x27;y&#x27;, y(reference[Math.floor(N * .78)].y) + 15).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).text(energyMode ? &#x27;300 K reference&#x27; : &#x27;28 g mol⁻¹ reference&#x27;);
+    chart.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;mb-axis-title&#x27;).attr(&#x27;data-axis&#x27;, &#x27;y&#x27;).attr(&#x27;transform&#x27;, `translate(21 ${(margin.top + height - margin.bottom) / 2}) rotate(-90)`).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(&#x27;Relative probability density&#x27;);
     if (energyMode) {
       const step = xMax / N;
       const total = trapz(current.map(d =&gt; d.y), step);
       const above = trapz(current.filter(d =&gt; d.x &gt;= Ea).map(d =&gt; d.y), step);
-      status.textContent = `${(100 * above / total).toFixed(1)}% of molecules have E ≥ Eₐ in this distribution.`;
+      status.textContent = `Reactive fraction (area to the right of Eₐ): ${(100 * above / total).toFixed(1)}%. Raising Eₐ moves the red threshold right and reduces this shaded area.`;
     } else {
       status.textContent = &#x27;At the same temperature, lighter gases have a greater most probable speed; their average kinetic energy remains the same.&#x27;;
     }
+    if (!activeGuidance) showGuidance();
   }
 
   [mode, temperature, mass, ea].forEach(control =&gt; control.addEventListener(&#x27;input&#x27;, render));
+  const controlsWithGuidance = [[mode, &#x27;mode&#x27;], [temperature, &#x27;temperature&#x27;], [mass, &#x27;mass&#x27;], [ea, &#x27;ea&#x27;]];
+  controlsWithGuidance.forEach(([control, topic]) =&gt; {
+    const label = control.closest(&#x27;label&#x27;);
+    label.addEventListener(&#x27;mouseenter&#x27;, () =&gt; { activeGuidance = topic; showGuidance(topic); });
+    label.addEventListener(&#x27;mouseleave&#x27;, restoreGuidance);
+    control.addEventListener(&#x27;focus&#x27;, () =&gt; { activeGuidance = topic; showGuidance(topic); });
+    control.addEventListener(&#x27;blur&#x27;, restoreGuidance);
+  });
   new ResizeObserver(render).observe(root.querySelector(&#x27;.mb-chart-wrap&#x27;));
   render();
 })();
