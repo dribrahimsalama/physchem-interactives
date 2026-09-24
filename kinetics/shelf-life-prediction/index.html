@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Predicting Drug Shelf Life Explorer</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Predicting Drug Shelf Life Explorer" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Predicting Drug Shelf Life Explorer&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) &gt; body {
+  padding: 12px;
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock&#x27;s pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;story&quot; class=&quot;story&quot; aria-roledescription=&quot;slide deck&quot; aria-label=&quot;Applying the Arrhenius equation: predicting drug shelf life&quot;&gt;
+  &lt;div class=&quot;story-progress&quot; role=&quot;presentation&quot;&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;0&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;1&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;2&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;3&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;5&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;6&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;7&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;8&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;story-viewport&quot;&gt;
+    &lt;div class=&quot;story-track&quot; id=&quot;story-track&quot;&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;0&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;A real shelf-life problem&lt;/p&gt;
+        &lt;h2&gt;Why does a hospital disinfectant expire in just 3 months?&lt;/h2&gt;
+        &lt;p class=&quot;story-lede&quot;&gt;Chlorhexidine solution, mixed by hospital pharmacies for wound care, is assigned a shelf life of only &lt;strong&gt;3 months&lt;/strong&gt; by Spanish national regulation &amp;mdash; not because it is known to be unstable, but because no long-term data exists to prove otherwise.&lt;/p&gt;
+        &lt;p&gt;Testing it properly, the standard way, would take the better part of a year. Researchers used the Arrhenius equation to get a data-backed answer in &lt;strong&gt;28 days&lt;/strong&gt;.&lt;/p&gt;
+        &lt;p class=&quot;story-source&quot;&gt;Source: peer-reviewed, open access &amp;mdash; &lt;em&gt;Molecules&lt;/em&gt; (2023)&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;1&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The problem with waiting&lt;/p&gt;
+        &lt;h2&gt;Real-time stability testing is slow, expensive &amp;mdash; and wasteful&lt;/h2&gt;
+        &lt;p&gt;Industrially manufactured medicines earn their shelf life from real-time stability studies that run for 6&amp;ndash;12+ months under international (ICH) guidelines. Hospital-compounded &amp;ldquo;extemporaneous&amp;rdquo; formulations rarely get this treatment, so regulators default to short, conservative expiry dates &amp;mdash; and usable medicine gets thrown away.&lt;/p&gt;
+        &lt;div class=&quot;story-equation-card&quot;&gt;
+          &lt;p class=&quot;story-equation&quot;&gt;ln &lt;em&gt;k&lt;/em&gt; = ln &lt;em&gt;A&lt;/em&gt; &amp;minus; &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;a&lt;/sub&gt; / &lt;em&gt;RT&lt;/em&gt;&lt;/p&gt;
+          &lt;p class=&quot;story-equation-caption&quot;&gt;Accelerated Predictive Stability (APS) uses exactly this relationship: stress the drug at high temperature, then extrapolate back down to storage temperature.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;2&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The experiment&lt;/p&gt;
+        &lt;h2&gt;Stress the drug, don&#x27;t wait for it to fail slowly&lt;/h2&gt;
+        &lt;ul class=&quot;story-list&quot;&gt;
+          &lt;li&gt;The actual hospital formulation: 0.1% chlorhexidine digluconate aqueous solution&lt;/li&gt;
+          &lt;li&gt;Stored at five stress temperatures: &lt;strong&gt;50, 60, 70, 75, 80&amp;nbsp;&amp;deg;C&lt;/strong&gt;&lt;/li&gt;
+          &lt;li&gt;Sampled at 0, 3, 7, 10, 14, 21 and 28 days, 5 vials per condition&lt;/li&gt;
+          &lt;li&gt;Drug content measured by validated HPLC at every time point&lt;/li&gt;
+          &lt;li&gt;Five candidate kinetic models tested at each temperature, to find which one actually describes the decay&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;story-temp-row&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;span class=&quot;story-temp-pill&quot;&gt;50&amp;deg;C&lt;/span&gt;
+          &lt;span class=&quot;story-temp-pill&quot;&gt;60&amp;deg;C&lt;/span&gt;
+          &lt;span class=&quot;story-temp-pill&quot;&gt;70&amp;deg;C&lt;/span&gt;
+          &lt;span class=&quot;story-temp-pill&quot;&gt;75&amp;deg;C&lt;/span&gt;
+          &lt;span class=&quot;story-temp-pill&quot;&gt;80&amp;deg;C&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;3&quot; data-chart=&quot;model-fit&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 1&lt;/p&gt;
+        &lt;h2&gt;Which decay model actually fits the data?&lt;/h2&gt;
+        &lt;p&gt;Five kinetic models were fit to the degradation data at every stress temperature. Averaged across all five temperatures, one model fit consistently better than the rest.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-model-fit&quot; role=&quot;img&quot; aria-labelledby=&quot;model-fit-title model-fit-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Mean R&amp;sup2; across the five stress temperatures, for each candidate model. Higher is a better fit.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;4&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 2&lt;/p&gt;
+        &lt;h2&gt;Turning five stress temperatures into one number&lt;/h2&gt;
+        &lt;p&gt;Using the winning model&#x27;s degradation rate at each of the five stress temperatures, plotting ln(rate) against 1/&lt;em&gt;T&lt;/em&gt; gives a straight line &amp;mdash; the Arrhenius relationship. Its slope is the activation energy.&lt;/p&gt;
+        &lt;div class=&quot;story-stat-row&quot;&gt;
+          &lt;div class=&quot;story-stat&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;18.52 &lt;small&gt;&amp;plusmn; 2.61&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;kcal&amp;nbsp;mol&amp;#8315;&amp;sup1; &lt;span class=&quot;story-stat-alt&quot;&gt;(&amp;asymp; 77.5 &amp;plusmn; 10.9 kJ&amp;nbsp;mol&amp;#8315;&amp;sup1;)&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;Activation energy, E&lt;sub&gt;a&lt;/sub&gt;&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;story-stat&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;0.941&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;R&amp;sup2; of the linear fit&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;Goodness of fit&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;story-note&quot;&gt;For comparison: the industrially manufactured version of the same antiseptic had E&lt;sub&gt;a&lt;/sub&gt; = 24.13 kcal&amp;nbsp;mol&amp;#8315;&amp;sup1; &amp;mdash; about 23% higher. A higher activation energy means the industrial formulation is inherently more resistant to degradation, exactly as the Arrhenius equation predicts.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;5&quot; data-chart=&quot;prediction&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The extrapolation&lt;/p&gt;
+        &lt;h2&gt;From 80&amp;deg;C in a lab to a fridge in a hospital pharmacy&lt;/h2&gt;
+        &lt;p&gt;Feeding the fitted activation energy back into the Arrhenius equation predicts degradation at real storage temperatures &amp;mdash; no 28-day stress test required.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap story-chart-wrap-dual&quot;&gt;
+          &lt;div class=&quot;story-chart-half&quot;&gt;&lt;svg id=&quot;chart-degradation&quot; role=&quot;img&quot; aria-labelledby=&quot;degradation-title degradation-desc&quot;&gt;&lt;/svg&gt;&lt;p class=&quot;story-chart-title&quot;&gt;Predicted degradation at 365 days&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;story-chart-half&quot;&gt;&lt;svg id=&quot;chart-shelflife&quot; role=&quot;img&quot; aria-labelledby=&quot;shelflife-title shelflife-desc&quot;&gt;&lt;/svg&gt;&lt;p class=&quot;story-chart-title&quot;&gt;Predicted shelf life (90% content)&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;6&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Validation&lt;/p&gt;
+        &lt;h2&gt;The 28-day prediction met a real 12-month experiment&lt;/h2&gt;
+        &lt;p&gt;The same solution was stored for real &amp;mdash; in the packaging hospitals actually use &amp;mdash; and sampled by HPLC over a full year. The prediction matched the measured data well for the first six months.&lt;/p&gt;
+        &lt;p&gt;Beyond that, the model turned out to be &lt;strong&gt;conservative&lt;/strong&gt;: it predicted more degradation than was actually measured. The authors traced this to a known confound &amp;mdash; the accelerated study used sealed glass HPLC vials, while the long-term study used a mix of glass and plastic containers, which lose water at very different rates. Water loss concentrates the remaining solution, which can mask true degradation over many months.&lt;/p&gt;
+        &lt;div class=&quot;story-timeline&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;div class=&quot;story-timeline-track&quot;&gt;
+            &lt;div class=&quot;story-timeline-good&quot; style=&quot;width:50%&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;story-timeline-drift&quot; style=&quot;width:50%&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;story-timeline-labels&quot;&gt;
+            &lt;span&gt;0 months&lt;/span&gt;
+            &lt;span&gt;6 months &amp;mdash; close match&lt;/span&gt;
+            &lt;span&gt;12 months &amp;mdash; model conservative&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;7&quot; data-chart=&quot;before-after&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why this matters&lt;/p&gt;
+        &lt;h2&gt;Same drug, evidence-based shelf life&lt;/h2&gt;
+        &lt;p&gt;Confirmed by the long-term data, the actual shelf life was over two years refrigerated and nearly six months at room temperature &amp;mdash; far beyond the 3-month default. On this evidence, the shelf life of this hospital-compounded formulation could be safely extended, cutting unnecessary medicine waste with data instead of guesswork.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-before-after&quot; role=&quot;img&quot; aria-labelledby=&quot;before-after-title before-after-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;8&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The takeaway&lt;/p&gt;
+        &lt;h2&gt;One equation, a 28-day experiment, a validated 2-year answer&lt;/h2&gt;
+        &lt;p&gt;This is what the Arrhenius equation is for outside the classroom: turning a slow, expensive real-time question into a fast, testable prediction &amp;mdash; one that held up against real data, with a well-understood, quantified reason for the small gap that remained.&lt;/p&gt;
+        &lt;p class=&quot;story-see-also&quot;&gt;See also, in this collection: the interactive Arrhenius equation explorer.&lt;/p&gt;
+        &lt;div class=&quot;story-citation&quot;&gt;
+          &lt;p&gt;González-González, O.; Ballesteros, M.P.; Torrado, J.J.; Serrano, D.R. Application of Accelerated Predictive Stability Studies in Extemporaneously Compounded Formulations of Chlorhexidine to Assess the Shelf Life. &lt;em&gt;Molecules&lt;/em&gt; &lt;strong&gt;2023&lt;/strong&gt;, &lt;em&gt;28&lt;/em&gt;, 7925.&lt;/p&gt;
+          &lt;p class=&quot;story-citation-doi&quot;&gt;doi.org/10.3390/molecules28237925 &amp;middot; open access, CC BY 4.0&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;story-controls&quot;&gt;
+    &lt;button type=&quot;button&quot; id=&quot;story-prev&quot; class=&quot;btn story-nav&quot; aria-label=&quot;Previous slide&quot;&gt;&amp;lsaquo;&lt;/button&gt;
+    &lt;div class=&quot;story-dots&quot; id=&quot;story-dots&quot; role=&quot;tablist&quot; aria-label=&quot;Slide navigation&quot;&gt;&lt;/div&gt;
+    &lt;button type=&quot;button&quot; id=&quot;story-next&quot; class=&quot;btn story-nav&quot; aria-label=&quot;Next slide&quot;&gt;&amp;rsaquo;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;story-hint&quot;&gt;Use the arrow keys or the buttons above to move through the story.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  #story { color: var(--foreground); max-width: 46rem; margin: 0 auto; }
+  #story .story-progress { display: flex; gap: 4px; margin-bottom: 18px; }
+  #story .story-progress-seg { flex: 1; height: 4px; border-radius: 2px; background: var(--muted); overflow: hidden; }
+  #story .story-progress-seg::after { content: &quot;&quot;; display: block; height: 100%; width: 0%; background: var(--viz-series-1); transition: width 240ms ease; }
+  #story .story-progress-seg.is-done::after, #story .story-progress-seg.is-current::after { width: 100%; }
+
+  #story .story-viewport { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-2xl); background: var(--card); }
+  #story .story-track { display: flex; transition: transform 420ms cubic-bezier(.4,0,.2,1); }
+  #story .story-slide { flex: 0 0 100%; box-sizing: border-box; padding: 32px clamp(20px, 4vw, 48px); min-height: 420px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+
+  #story .story-kicker { margin: 0; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; font-weight: 600; color: var(--viz-series-1); }
+  #story .story-slide h2 { font-size: clamp(20px, 3vw, 28px); line-height: 1.25; margin: 0 0 4px; }
+  #story .story-lede { font-size: 17px; }
+  #story .story-slide p { font-size: 15.5px; line-height: 1.55; color: var(--foreground); }
+  #story .story-source, #story .story-caption, #story .story-note { color: var(--muted-foreground); font-size: 13.5px; }
+  #story .story-see-also { font-style: italic; color: var(--muted-foreground); }
+
+  #story .story-list { margin: 4px 0; padding-left: 1.2em; font-size: 15.5px; line-height: 1.6; }
+  #story .story-list li { margin-bottom: 4px; }
+
+  #story .story-temp-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  #story .story-temp-pill { background: var(--accent); color: var(--accent-foreground); border-radius: var(--radius-full); padding: 4px 12px; font-weight: 600; font-size: 14px; }
+
+  #story .story-equation-card { border-left: 4px solid var(--viz-series-1); background: var(--muted); border-radius: var(--radius-lg); padding: 14px 16px; margin-top: 6px; }
+  #story .story-equation { font-size: 20px; margin: 0 0 6px; font-weight: 600; }
+  #story .story-equation-caption { margin: 0; font-size: 14.5px; color: var(--muted-foreground); }
+
+  #story .story-stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin: 8px 0; }
+  #story .story-stat { display: flex; flex-direction: column; gap: 2px; }
+  #story .story-stat-value { font-size: 30px; font-weight: 700; line-height: 1.1; }
+  #story .story-stat-value small { font-size: 16px; font-weight: 500; color: var(--muted-foreground); }
+  #story .story-stat-unit { font-size: 13.5px; color: var(--muted-foreground); }
+  #story .story-stat-alt { display: block; }
+  #story .story-stat-label { font-size: 13px; color: var(--muted-foreground); margin-top: 2px; }
+
+  #story .story-chart-wrap { width: 100%; margin-top: 4px; }
+  #story .story-chart-wrap svg { width: 100%; height: 220px; display: block; }
+  #story .story-chart-wrap-dual { display: flex; gap: 20px; flex-wrap: wrap; }
+  #story .story-chart-half { flex: 1 1 220px; min-width: 200px; }
+  #story .story-chart-half svg { height: 200px; }
+  #story .story-chart-title { text-align: center; font-size: 13.5px; color: var(--muted-foreground); margin: 4px 0 0; }
+
+  #story .story-bar { fill: var(--muted-foreground); }
+  #story .story-bar.is-winner { fill: var(--viz-series-1); }
+  #story .story-bar-label { fill: var(--foreground); font-size: 13px; }
+  #story .story-bar-value { fill: var(--foreground); font-size: 13px; font-weight: 600; }
+
+  #story .story-timeline { margin-top: 10px; }
+  #story .story-timeline-track { display: flex; height: 10px; border-radius: var(--radius-full); overflow: hidden; background: var(--muted); }
+  #story .story-timeline-good { background: var(--viz-series-1); }
+  #story .story-timeline-drift { background: var(--viz-series-2, var(--destructive)); opacity: .55; }
+  #story .story-timeline-labels { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted-foreground); margin-top: 6px; }
+  #story .story-timeline-labels span:last-child { text-align: right; max-width: 40%; }
+
+  #story .story-citation { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 12px; }
+  #story .story-citation p { margin: 0 0 4px; font-size: 13.5px; color: var(--muted-foreground); }
+  #story .story-citation-doi { font-family: var(--font-mono); }
+
+  #story .story-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
+  #story .story-nav { min-width: 40px; min-height: 40px; font-size: 20px; border-radius: var(--radius-full); }
+  #story .story-dots { display: flex; gap: 7px; }
+  #story .story-dots button { width: 9px; height: 9px; padding: 0; border-radius: 50%; border: 0; background: var(--muted); cursor: pointer; }
+  #story .story-dots button.is-current { background: var(--viz-series-1); }
+  #story .story-hint { text-align: center; font-size: 12.5px; color: var(--muted-foreground); margin: 10px 0 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #story .story-track { transition: none; }
+    #story .story-progress-seg::after { transition: none; }
+  }
+  @media (max-width: 560px) {
+    #story .story-slide { min-height: 480px; padding: 24px 18px; }
+    #story .story-chart-wrap-dual { flex-direction: column; }
+  }
+&lt;/style&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.getElementById(&#x27;story&#x27;);
+  const track = root.querySelector(&#x27;#story-track&#x27;);
+  const slides = Array.from(root.querySelectorAll(&#x27;.story-slide&#x27;));
+  const segs = Array.from(root.querySelectorAll(&#x27;.story-progress-seg&#x27;));
+  const dotsContainer = root.querySelector(&#x27;#story-dots&#x27;);
+  const prevBtn = root.querySelector(&#x27;#story-prev&#x27;);
+  const nextBtn = root.querySelector(&#x27;#story-next&#x27;);
+  const total = slides.length;
+  let current = 0;
+  const drawn = new Set();
+
+  slides.forEach((slide, i) =&gt; {
+    const dot = document.createElement(&#x27;button&#x27;);
+    dot.type = &#x27;button&#x27;;
+    dot.setAttribute(&#x27;role&#x27;, &#x27;tab&#x27;);
+    dot.setAttribute(&#x27;aria-label&#x27;, `Go to slide ${i + 1} of ${total}`);
+    dot.addEventListener(&#x27;click&#x27;, () =&gt; goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+  const dots = Array.from(dotsContainer.children);
+
+  function update() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    segs.forEach((seg, i) =&gt; {
+      seg.classList.toggle(&#x27;is-done&#x27;, i &lt; current);
+      seg.classList.toggle(&#x27;is-current&#x27;, i === current);
+    });
+    dots.forEach((dot, i) =&gt; dot.classList.toggle(&#x27;is-current&#x27;, i === current));
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    const chartKey = slides[current].dataset.chart;
+    if (chartKey &amp;&amp; !drawn.has(chartKey)) {
+      drawn.add(chartKey);
+      drawChart(chartKey);
+    }
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(total - 1, index));
+    update();
+  }
+
+  prevBtn.addEventListener(&#x27;click&#x27;, () =&gt; goTo(current - 1));
+  nextBtn.addEventListener(&#x27;click&#x27;, () =&gt; goTo(current + 1));
+  document.addEventListener(&#x27;keydown&#x27;, (event) =&gt; {
+    if (event.target instanceof HTMLElement &amp;&amp; /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) return;
+    if (event.key === &#x27;ArrowRight&#x27;) { goTo(current + 1); event.preventDefault(); }
+    if (event.key === &#x27;ArrowLeft&#x27;) { goTo(current - 1); event.preventDefault(); }
+  });
+
+  function barChart(svgId, titleId, descId, title, desc, data, opts) {
+    const svg = d3.select(root.querySelector(&#x27;#&#x27; + svgId));
+    const bounds = svg.node().getBoundingClientRect();
+    const width = Math.max(260, Math.floor(bounds.width));
+    const height = Math.max(160, Math.floor(bounds.height) || 200);
+    const margin = { top: 16, right: opts.suffixWidth || 56, bottom: 16, left: opts.labelWidth || 110 };
+    svg.attr(&#x27;viewBox&#x27;, `0 0 ${width} ${height}`).attr(&#x27;preserveAspectRatio&#x27;, &#x27;xMidYMid meet&#x27;);
+    svg.selectAll(&#x27;*&#x27;).remove();
+    svg.append(&#x27;title&#x27;).attr(&#x27;id&#x27;, titleId).text(title);
+    svg.append(&#x27;desc&#x27;).attr(&#x27;id&#x27;, descId).text(desc);
+
+    const y = d3.scaleBand().domain(data.map(d =&gt; d.label)).range([margin.top, height - margin.bottom]).padding(0.32);
+    const x = d3.scaleLinear().domain([0, opts.max]).range([margin.left, width - margin.right]);
+
+    const rows = svg.selectAll(&#x27;g.row&#x27;).data(data).join(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;row&#x27;);
+    rows.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-bar-label&#x27;).attr(&#x27;x&#x27;, margin.left - 8).attr(&#x27;y&#x27;, d =&gt; y(d.label) + y.bandwidth() / 2).attr(&#x27;dy&#x27;, &#x27;0.35em&#x27;).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).text(d =&gt; d.label);
+    const bars = rows.append(&#x27;rect&#x27;)
+      .attr(&#x27;class&#x27;, d =&gt; &#x27;story-bar&#x27; + (d.winner ? &#x27; is-winner&#x27; : &#x27;&#x27;))
+      .attr(&#x27;x&#x27;, x(0)).attr(&#x27;y&#x27;, d =&gt; y(d.label)).attr(&#x27;height&#x27;, y.bandwidth()).attr(&#x27;rx&#x27;, 4)
+      .attr(&#x27;width&#x27;, 0);
+    bars.transition().duration(650).ease(d3.easeCubicOut).attr(&#x27;width&#x27;, d =&gt; x(d.value) - x(0));
+    rows.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-bar-value&#x27;).attr(&#x27;x&#x27;, d =&gt; x(d.value) + 6).attr(&#x27;y&#x27;, d =&gt; y(d.label) + y.bandwidth() / 2).attr(&#x27;dy&#x27;, &#x27;0.35em&#x27;).attr(&#x27;text-anchor&#x27;, &#x27;start&#x27;)
+      .text(d =&gt; opts.format(d.value)).attr(&#x27;opacity&#x27;, 0).transition().delay(400).duration(300).attr(&#x27;opacity&#x27;, 1);
+  }
+
+  function drawChart(key) {
+    if (key === &#x27;model-fit&#x27;) {
+      barChart(&#x27;chart-model-fit&#x27;, &#x27;model-fit-title&#x27;, &#x27;model-fit-desc&#x27;,
+        &#x27;Mean R-squared by kinetic model&#x27;,
+        &#x27;A horizontal bar chart comparing the mean coefficient of determination for five kinetic degradation models: zero order, first order, second order, Avrami, and diffusion. The Avrami model has the highest value.&#x27;,
+        [
+          { label: &#x27;Avrami&#x27;, value: 0.932, winner: true },
+          { label: &#x27;Zero order&#x27;, value: 0.711 },
+          { label: &#x27;First order&#x27;, value: 0.688 },
+          { label: &#x27;Diffusion&#x27;, value: 0.686 },
+          { label: &#x27;Second order&#x27;, value: 0.662 }
+        ], { max: 1, format: d =&gt; d.toFixed(3), labelWidth: 96 });
+    }
+    if (key === &#x27;prediction&#x27;) {
+      barChart(&#x27;chart-degradation&#x27;, &#x27;degradation-title&#x27;, &#x27;degradation-desc&#x27;,
+        &#x27;Predicted degradation at 365 days by storage temperature&#x27;,
+        &#x27;A bar chart showing predicted percent degradation at one year for three storage temperatures: 3.1 percent at 5 degrees Celsius, 17.4 percent at 25 degrees Celsius, and 25.9 percent at 30 degrees Celsius.&#x27;,
+        [
+          { label: &#x27;5 °C&#x27;, value: 3.1 },
+          { label: &#x27;25 °C&#x27;, value: 17.4, winner: true },
+          { label: &#x27;30 °C&#x27;, value: 25.9 }
+        ], { max: 30, format: d =&gt; d.toFixed(1) + &#x27;%&#x27;, labelWidth: 52, suffixWidth: 44 });
+      barChart(&#x27;chart-shelflife&#x27;, &#x27;shelflife-title&#x27;, &#x27;shelflife-desc&#x27;,
+        &#x27;Predicted shelf life in months by storage temperature&#x27;,
+        &#x27;A bar chart showing predicted shelf life in months for three storage temperatures: 26.67 months at 5 degrees Celsius, 5.75 months at 25 degrees Celsius, and 2.24 months at 30 degrees Celsius.&#x27;,
+        [
+          { label: &#x27;5 °C&#x27;, value: 26.67 },
+          { label: &#x27;25 °C&#x27;, value: 5.75, winner: true },
+          { label: &#x27;30 °C&#x27;, value: 2.24 }
+        ], { max: 28, format: d =&gt; d.toFixed(1) + &#x27; mo&#x27;, labelWidth: 52, suffixWidth: 52 });
+    }
+    if (key === &#x27;before-after&#x27;) {
+      barChart(&#x27;chart-before-after&#x27;, &#x27;before-after-title&#x27;, &#x27;before-after-desc&#x27;,
+        &#x27;Regulatory default versus evidence-based shelf life&#x27;,
+        &#x27;A bar chart comparing the default regulatory shelf life of 3 months against the evidence-based shelf life of nearly 6 months at room temperature, confirmed by long-term data.&#x27;,
+        [
+          { label: &#x27;Default (no data)&#x27;, value: 3 },
+          { label: &#x27;Evidence-based (25°C)&#x27;, value: 5.75, winner: true }
+        ], { max: 7, format: d =&gt; d.toFixed(2) + &#x27; mo&#x27;, labelWidth: 190, suffixWidth: 56 });
+    }
+  }
+
+  update();
+  new ResizeObserver(() =&gt; { drawn.forEach(key =&gt; drawChart(key)); }).observe(root.querySelector(&#x27;.story-viewport&#x27;));
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
