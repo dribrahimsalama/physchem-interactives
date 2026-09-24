@@ -1045,17 +1045,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div id=&quot;story&quot; class=&quot;story&quot; aria-roledescription=&quot;slide deck&quot; aria-label=&quot;Applying the Arrhenius equation: predicting drug shelf life&quot;&gt;
-  &lt;div class=&quot;story-progress&quot; role=&quot;presentation&quot;&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;0&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;1&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;2&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;3&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;4&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;5&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;6&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;7&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;story-progress-seg&quot; data-seg=&quot;8&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
+  &lt;div class=&quot;story-progress&quot; role=&quot;presentation&quot; id=&quot;story-progress&quot;&gt;&lt;/div&gt;
 
   &lt;div class=&quot;story-viewport&quot;&gt;
     &lt;div class=&quot;story-track&quot; id=&quot;story-track&quot;&gt;
@@ -1072,13 +1062,32 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;The problem with waiting&lt;/p&gt;
         &lt;h2&gt;Real-time stability testing is slow, expensive &amp;mdash; and wasteful&lt;/h2&gt;
         &lt;p&gt;Industrially manufactured medicines earn their shelf life from real-time stability studies that run for 6&amp;ndash;12+ months under international (ICH) guidelines. Hospital-compounded &amp;ldquo;extemporaneous&amp;rdquo; formulations rarely get this treatment, so regulators default to short, conservative expiry dates &amp;mdash; and usable medicine gets thrown away.&lt;/p&gt;
-        &lt;div class=&quot;story-equation-card&quot;&gt;
+        &lt;div class=&quot;story-callout story-callout-theory&quot;&gt;
+          &lt;p class=&quot;story-callout-label&quot;&gt;The Arrhenius Equation&lt;/p&gt;
           &lt;p class=&quot;story-equation&quot;&gt;ln &lt;em&gt;k&lt;/em&gt; = ln &lt;em&gt;A&lt;/em&gt; &amp;minus; &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;a&lt;/sub&gt; / &lt;em&gt;RT&lt;/em&gt;&lt;/p&gt;
-          &lt;p class=&quot;story-equation-caption&quot;&gt;Accelerated Predictive Stability (APS) uses exactly this relationship: stress the drug at high temperature, then extrapolate back down to storage temperature.&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;Accelerated Predictive Stability (APS) studies use exactly this relationship: stress the drug at high temperature, then extrapolate back down to storage temperature.&lt;/p&gt;
         &lt;/div&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;2&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why this equation? &amp;middot; 1 of 2&lt;/p&gt;
+        &lt;h2&gt;Reaction rates don&#x27;t rise gently with temperature &amp;mdash; they rise exponentially&lt;/h2&gt;
+        &lt;p&gt;A rule of thumb in chemical kinetics: many reactions roughly double or triple in rate for every 10&amp;nbsp;&amp;deg;C rise. That&#x27;s not a coincidence &amp;mdash; it falls directly out of the Arrhenius equation&#x27;s exponential term.&lt;/p&gt;
+        &lt;p&gt;The practical consequence is powerful: because the relationship between rate and temperature has exactly &lt;strong&gt;two&lt;/strong&gt; unknowns (&lt;em&gt;A&lt;/em&gt; and &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;a&lt;/sub&gt;), measuring the degradation rate at just a handful of temperatures is enough to solve for both &amp;mdash; and then predict the rate at &lt;em&gt;any&lt;/em&gt; other temperature, including one nobody directly tested for months.&lt;/p&gt;
+        &lt;p class=&quot;story-see-also&quot;&gt;See also, in this collection: the interactive Arrhenius equation explorer, which lets you play with exactly this relationship.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;3&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why this equation? &amp;middot; 2 of 2&lt;/p&gt;
+        &lt;h2&gt;It&#x27;s fast enough to actually be useful in a hospital pharmacy&lt;/h2&gt;
+        &lt;p&gt;The alternative &amp;mdash; real-time ICH stability testing &amp;mdash; takes 6&amp;ndash;12+ months and is expensive, which is exactly why hospital-compounded formulations rarely get it, and end up with conservative, no-data expiry dates by default.&lt;/p&gt;
+        &lt;p&gt;Accelerated Predictive Stability (APS) studies compress that into &lt;strong&gt;3&amp;ndash;4 weeks&lt;/strong&gt; by combining extreme temperatures (50&amp;ndash;80&amp;nbsp;&amp;deg;C) with elevated humidity. This is the first published attempt to apply that industrial technique to a hospital-compounded formulation rather than a mass-manufactured drug.&lt;/p&gt;
+        &lt;div class=&quot;story-callout story-callout-detail&quot;&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;&lt;strong&gt;~12&amp;times; faster:&lt;/strong&gt; a 3&amp;ndash;4 week accelerated study standing in for a 6&amp;ndash;12+ month real-time one.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;4&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;The experiment&lt;/p&gt;
         &lt;h2&gt;Stress the drug, don&#x27;t wait for it to fail slowly&lt;/h2&gt;
         &lt;ul class=&quot;story-list&quot;&gt;
@@ -1097,25 +1106,52 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;/div&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;story-slide&quot; data-slide=&quot;3&quot; data-chart=&quot;model-fit&quot;&gt;
-        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 1&lt;/p&gt;
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;5&quot; data-chart=&quot;model-fit&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 1a&lt;/p&gt;
         &lt;h2&gt;Which decay model actually fits the data?&lt;/h2&gt;
         &lt;p&gt;Five kinetic models were fit to the degradation data at every stress temperature. Averaged across all five temperatures, one model fit consistently better than the rest.&lt;/p&gt;
         &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-model-fit&quot; role=&quot;img&quot; aria-labelledby=&quot;model-fit-title model-fit-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
         &lt;p class=&quot;story-caption&quot;&gt;Mean R&amp;sup2; across the five stress temperatures, for each candidate model. Higher is a better fit.&lt;/p&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;story-slide&quot; data-slide=&quot;4&quot;&gt;
-        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 2&lt;/p&gt;
-        &lt;h2&gt;Turning five stress temperatures into one number&lt;/h2&gt;
-        &lt;p&gt;Using the winning model&#x27;s degradation rate at each of the five stress temperatures, plotting ln(rate) against 1/&lt;em&gt;T&lt;/em&gt; gives a straight line &amp;mdash; the Arrhenius relationship. Its slope is the activation energy.&lt;/p&gt;
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;6&quot; data-chart=&quot;model-detail&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 1b&lt;/p&gt;
+        &lt;h2&gt;A closer look at the winning model: Avrami&lt;/h2&gt;
+        &lt;p&gt;The Avrami model &amp;mdash; common in pharmaceutical degradation, where several competing and reversible reactions occur at once &amp;mdash; describes the fraction degraded, &amp;alpha;, over time &lt;em&gt;t&lt;/em&gt;:&lt;/p&gt;
+        &lt;div class=&quot;story-callout story-callout-theory&quot;&gt;
+          &lt;p class=&quot;story-equation story-equation-sm&quot;&gt;&amp;alpha;(&lt;em&gt;t&lt;/em&gt;) = 1 &amp;minus; exp[&amp;minus;(&lt;em&gt;kt&lt;/em&gt;)&lt;sup&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sup&gt;]&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;General form of the model (standard pharmaceutical kinetics). &lt;em&gt;k&lt;/em&gt; is the rate constant that feeds into the Arrhenius equation; &lt;em&gt;n&lt;/em&gt; reflects the degradation mechanism. The paper reports the fit quality (R&amp;sup2;) at each temperature, not the individual &lt;em&gt;k&lt;/em&gt;/&lt;em&gt;n&lt;/em&gt; values.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-model-detail&quot; role=&quot;img&quot; aria-labelledby=&quot;model-detail-title model-detail-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Avrami-model R&amp;sup2; at each stress temperature. The fit is strongest at 50&amp;nbsp;&amp;deg;C and weakest at 60&amp;nbsp;&amp;deg;C, but stays reasonable throughout.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;7&quot; data-chart=&quot;illustrative-decay&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 2a &lt;span class=&quot;story-badge&quot;&gt;Illustrative example&lt;/span&gt;&lt;/p&gt;
+        &lt;h2&gt;From a decay curve to a single number: the rate constant&lt;/h2&gt;
+        &lt;p&gt;At &lt;em&gt;each&lt;/em&gt; stress temperature, fitting the Avrami model to the content-vs-time data yields one number: the degradation rate constant, &lt;em&gt;k&lt;/em&gt;, at that temperature.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-illustrative-decay&quot; role=&quot;img&quot; aria-labelledby=&quot;illustrative-decay-title illustrative-decay-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Illustrative decay curve at a single stress temperature, for teaching the method &amp;mdash; not the paper&#x27;s own plotted data (which isn&#x27;t published point-by-point). The steeper the curve, the larger &lt;em&gt;k&lt;/em&gt;.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;8&quot; data-chart=&quot;illustrative-arrhenius&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 2b &lt;span class=&quot;story-badge&quot;&gt;Illustrative example&lt;/span&gt;&lt;/p&gt;
+        &lt;h2&gt;Five rate constants, one straight line&lt;/h2&gt;
+        &lt;p&gt;Repeat that fit at all five stress temperatures, then plot ln(&lt;em&gt;k&lt;/em&gt;) against 1/&lt;em&gt;T&lt;/em&gt;. The Arrhenius equation says this must be a straight line &amp;mdash; and its slope is &amp;minus;&lt;em&gt;E&lt;/em&gt;&lt;sub&gt;a&lt;/sub&gt;/&lt;em&gt;R&lt;/em&gt;.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-illustrative-arrhenius&quot; role=&quot;img&quot; aria-labelledby=&quot;illustrative-arrhenius-title illustrative-arrhenius-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Illustrative rate constants for teaching the shape of the method (the paper does not publish its five individual &lt;em&gt;k&lt;/em&gt; values). Doing exactly this with the real data gives the result on the next slide.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;9&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 2c&lt;/p&gt;
+        &lt;h2&gt;The real number, from the real data&lt;/h2&gt;
         &lt;div class=&quot;story-stat-row&quot;&gt;
-          &lt;div class=&quot;story-stat&quot;&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
             &lt;span class=&quot;story-stat-value&quot;&gt;18.52 &lt;small&gt;&amp;plusmn; 2.61&lt;/small&gt;&lt;/span&gt;
             &lt;span class=&quot;story-stat-unit&quot;&gt;kcal&amp;nbsp;mol&amp;#8315;&amp;sup1; &lt;span class=&quot;story-stat-alt&quot;&gt;(&amp;asymp; 77.5 &amp;plusmn; 10.9 kJ&amp;nbsp;mol&amp;#8315;&amp;sup1;)&lt;/span&gt;&lt;/span&gt;
             &lt;span class=&quot;story-stat-label&quot;&gt;Activation energy, E&lt;sub&gt;a&lt;/sub&gt;&lt;/span&gt;
           &lt;/div&gt;
-          &lt;div class=&quot;story-stat&quot;&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
             &lt;span class=&quot;story-stat-value&quot;&gt;0.941&lt;/span&gt;
             &lt;span class=&quot;story-stat-unit&quot;&gt;R&amp;sup2; of the linear fit&lt;/span&gt;
             &lt;span class=&quot;story-stat-label&quot;&gt;Goodness of fit&lt;/span&gt;
@@ -1124,42 +1160,67 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;p class=&quot;story-note&quot;&gt;For comparison: the industrially manufactured version of the same antiseptic had E&lt;sub&gt;a&lt;/sub&gt; = 24.13 kcal&amp;nbsp;mol&amp;#8315;&amp;sup1; &amp;mdash; about 23% higher. A higher activation energy means the industrial formulation is inherently more resistant to degradation, exactly as the Arrhenius equation predicts.&lt;/p&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;story-slide&quot; data-slide=&quot;5&quot; data-chart=&quot;prediction&quot;&gt;
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;10&quot; data-chart=&quot;extrapolation-lines&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;The extrapolation&lt;/p&gt;
         &lt;h2&gt;From 80&amp;deg;C in a lab to a fridge in a hospital pharmacy&lt;/h2&gt;
-        &lt;p&gt;Feeding the fitted activation energy back into the Arrhenius equation predicts degradation at real storage temperatures &amp;mdash; no 28-day stress test required.&lt;/p&gt;
-        &lt;div class=&quot;story-chart-wrap story-chart-wrap-dual&quot;&gt;
-          &lt;div class=&quot;story-chart-half&quot;&gt;&lt;svg id=&quot;chart-degradation&quot; role=&quot;img&quot; aria-labelledby=&quot;degradation-title degradation-desc&quot;&gt;&lt;/svg&gt;&lt;p class=&quot;story-chart-title&quot;&gt;Predicted degradation at 365 days&lt;/p&gt;&lt;/div&gt;
-          &lt;div class=&quot;story-chart-half&quot;&gt;&lt;svg id=&quot;chart-shelflife&quot; role=&quot;img&quot; aria-labelledby=&quot;shelflife-title shelflife-desc&quot;&gt;&lt;/svg&gt;&lt;p class=&quot;story-chart-title&quot;&gt;Predicted shelf life (90% content)&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
+        &lt;p&gt;Feeding the fitted activation energy back into the Arrhenius equation predicts the full content-vs-time curve at real storage temperatures &amp;mdash; these are the paper&#x27;s own reported fitted-line equations.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-extrapolation-lines&quot; role=&quot;img&quot; aria-labelledby=&quot;extrapolation-lines-title extrapolation-lines-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Predicted content over 12 months at each storage temperature, from the paper&#x27;s fitted equations.&lt;/p&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;story-slide&quot; data-slide=&quot;6&quot;&gt;
-        &lt;p class=&quot;story-kicker&quot;&gt;Validation&lt;/p&gt;
-        &lt;h2&gt;The 28-day prediction met a real 12-month experiment&lt;/h2&gt;
-        &lt;p&gt;The same solution was stored for real &amp;mdash; in the packaging hospitals actually use &amp;mdash; and sampled by HPLC over a full year. The prediction matched the measured data well for the first six months.&lt;/p&gt;
-        &lt;p&gt;Beyond that, the model turned out to be &lt;strong&gt;conservative&lt;/strong&gt;: it predicted more degradation than was actually measured. The authors traced this to a known confound &amp;mdash; the accelerated study used sealed glass HPLC vials, while the long-term study used a mix of glass and plastic containers, which lose water at very different rates. Water loss concentrates the remaining solution, which can mask true degradation over many months.&lt;/p&gt;
-        &lt;div class=&quot;story-timeline&quot; aria-hidden=&quot;true&quot;&gt;
-          &lt;div class=&quot;story-timeline-track&quot;&gt;
-            &lt;div class=&quot;story-timeline-good&quot; style=&quot;width:50%&quot;&gt;&lt;/div&gt;
-            &lt;div class=&quot;story-timeline-drift&quot; style=&quot;width:50%&quot;&gt;&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;story-timeline-labels&quot;&gt;
-            &lt;span&gt;0 months&lt;/span&gt;
-            &lt;span&gt;6 months &amp;mdash; close match&lt;/span&gt;
-            &lt;span&gt;12 months &amp;mdash; model conservative&lt;/span&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;11&quot; data-chart=&quot;degradation&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The extrapolation &amp;middot; in numbers&lt;/p&gt;
+        &lt;h2&gt;Predicted degradation at one year&lt;/h2&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-degradation&quot; role=&quot;img&quot; aria-labelledby=&quot;degradation-title degradation-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;story-slide&quot; data-slide=&quot;7&quot; data-chart=&quot;before-after&quot;&gt;
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;12&quot; data-chart=&quot;shelflife&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The extrapolation &amp;middot; in numbers&lt;/p&gt;
+        &lt;h2&gt;Predicted shelf life (time to fall below 90% content)&lt;/h2&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-shelflife&quot; role=&quot;img&quot; aria-labelledby=&quot;shelflife-title shelflife-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;13&quot; data-chart=&quot;validation-5&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Validation &amp;middot; 5&amp;deg;C&lt;/p&gt;
+        &lt;h2&gt;Refrigerated: does the prediction hold up?&lt;/h2&gt;
+        &lt;p&gt;The same solution was then stored for real, in the packaging hospitals actually use, and sampled over a full year.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-validation-5&quot; role=&quot;img&quot; aria-labelledby=&quot;validation-5-title validation-5-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Refrigerated storage barely challenges the drug: content stays close to the specification limit for the whole predicted shelf life.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;14&quot; data-chart=&quot;validation-25&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Validation &amp;middot; 25&amp;deg;C&lt;/p&gt;
+        &lt;h2&gt;Room temperature: the practically important case&lt;/h2&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-validation-25&quot; role=&quot;img&quot; aria-labelledby=&quot;validation-25-title validation-25-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Measured content tracked the prediction closely for the first six months, then stayed &lt;em&gt;above&lt;/em&gt; the predicted line &amp;mdash; the drug held up better than forecast.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;15&quot; data-chart=&quot;validation-30&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Validation &amp;middot; 30&amp;deg;C&lt;/p&gt;
+        &lt;h2&gt;Worst case: hot storage, light-exposed&lt;/h2&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-validation-30&quot; role=&quot;img&quot; aria-labelledby=&quot;validation-30-title validation-30-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Same pattern, more pronounced: real content diverges further above the predicted line as time passes.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;16&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why the small gap?&lt;/p&gt;
+        &lt;h2&gt;The model was conservative &amp;mdash; and the authors explain exactly why&lt;/h2&gt;
+        &lt;p&gt;In every condition, the model predicted &lt;em&gt;more&lt;/em&gt; degradation than was actually measured, and the gap grew after about six months. The authors traced this to a known confound: the accelerated study used sealed glass HPLC vials, while the long-term study used a mix of glass and plastic containers &amp;mdash; which lose water at very different rates. Water loss concentrates the remaining solution, which can mask true degradation.&lt;/p&gt;
+        &lt;div class=&quot;story-callout story-callout-data&quot;&gt;
+          &lt;p class=&quot;story-callout-label&quot;&gt;Measured evaporation, refrigerated storage&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;&lt;strong&gt;Amber glass:&lt;/strong&gt; ~0.0000%/day &amp;nbsp;&amp;middot;&amp;nbsp; &lt;strong&gt;Clear glass:&lt;/strong&gt; ~0.0002%/day &amp;nbsp;&amp;middot;&amp;nbsp; &lt;strong&gt;Clear plastic:&lt;/strong&gt; ~0.0026%/day &amp;nbsp;&amp;middot;&amp;nbsp; &lt;strong&gt;Amber plastic:&lt;/strong&gt; ~0.0039%/day&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;story-note&quot;&gt;Glass barely breathes; plastic does &amp;mdash; over a year, that difference is enough to matter. A deviation with a diagnosed, quantified cause is a very different thing from a model that simply failed.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;17&quot; data-chart=&quot;before-after&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;Why this matters&lt;/p&gt;
         &lt;h2&gt;Same drug, evidence-based shelf life&lt;/h2&gt;
         &lt;p&gt;Confirmed by the long-term data, the actual shelf life was over two years refrigerated and nearly six months at room temperature &amp;mdash; far beyond the 3-month default. On this evidence, the shelf life of this hospital-compounded formulation could be safely extended, cutting unnecessary medicine waste with data instead of guesswork.&lt;/p&gt;
         &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-before-after&quot; role=&quot;img&quot; aria-labelledby=&quot;before-after-title before-after-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;story-slide&quot; data-slide=&quot;8&quot;&gt;
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;18&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;The takeaway&lt;/p&gt;
         &lt;h2&gt;One equation, a 28-day experiment, a validated 2-year answer&lt;/h2&gt;
         &lt;p&gt;This is what the Arrhenius equation is for outside the classroom: turning a slow, expensive real-time question into a fast, testable prediction &amp;mdash; one that held up against real data, with a well-understood, quantified reason for the small gap that remained.&lt;/p&gt;
@@ -1178,50 +1239,59 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;div class=&quot;story-dots&quot; id=&quot;story-dots&quot; role=&quot;tablist&quot; aria-label=&quot;Slide navigation&quot;&gt;&lt;/div&gt;
     &lt;button type=&quot;button&quot; id=&quot;story-next&quot; class=&quot;btn story-nav&quot; aria-label=&quot;Next slide&quot;&gt;&amp;rsaquo;&lt;/button&gt;
   &lt;/div&gt;
-  &lt;p class=&quot;story-hint&quot;&gt;Use the arrow keys or the buttons above to move through the story.&lt;/p&gt;
+  &lt;p class=&quot;story-hint&quot;&gt;Use the arrow keys or the buttons above to move through the story. &lt;span id=&quot;story-position&quot; class=&quot;tabular-nums&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-  #story { color: var(--foreground); max-width: 46rem; margin: 0 auto; }
+  #story { color: var(--foreground); max-width: 68rem; margin: 0 auto; }
   #story .story-progress { display: flex; gap: 4px; margin-bottom: 18px; }
   #story .story-progress-seg { flex: 1; height: 4px; border-radius: 2px; background: var(--muted); overflow: hidden; }
   #story .story-progress-seg::after { content: &quot;&quot;; display: block; height: 100%; width: 0%; background: var(--viz-series-1); transition: width 240ms ease; }
   #story .story-progress-seg.is-done::after, #story .story-progress-seg.is-current::after { width: 100%; }
 
-  #story .story-viewport { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-2xl); background: var(--card); }
+  #story .story-viewport { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-2xl); background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px -12px rgba(0,0,0,.12); }
   #story .story-track { display: flex; transition: transform 420ms cubic-bezier(.4,0,.2,1); }
-  #story .story-slide { flex: 0 0 100%; box-sizing: border-box; padding: 32px clamp(20px, 4vw, 48px); min-height: 420px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+  #story .story-slide { flex: 0 0 100%; box-sizing: border-box; padding: 36px clamp(22px, 5vw, 64px); min-height: 460px; display: flex; flex-direction: column; justify-content: center; gap: 11px; }
 
-  #story .story-kicker { margin: 0; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; font-weight: 600; color: var(--viz-series-1); }
-  #story .story-slide h2 { font-size: clamp(20px, 3vw, 28px); line-height: 1.25; margin: 0 0 4px; }
+  #story .story-kicker { margin: 0; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; font-weight: 600; color: var(--viz-series-1); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  #story .story-badge { text-transform: none; letter-spacing: normal; font-weight: 600; font-size: 11.5px; color: var(--viz-series-2, var(--destructive)); background: color-mix(in srgb, var(--viz-series-2, var(--destructive)) 16%, transparent); border-radius: var(--radius-full); padding: 2px 9px; }
+  #story .story-slide h2 { font-size: clamp(21px, 2.6vw, 29px); line-height: 1.25; margin: 0 0 4px; max-width: 44rem; }
   #story .story-lede { font-size: 17px; }
-  #story .story-slide p { font-size: 15.5px; line-height: 1.55; color: var(--foreground); }
+  #story .story-slide p { font-size: 15.5px; line-height: 1.6; color: var(--foreground); max-width: 46rem; }
   #story .story-source, #story .story-caption, #story .story-note { color: var(--muted-foreground); font-size: 13.5px; }
   #story .story-see-also { font-style: italic; color: var(--muted-foreground); }
 
-  #story .story-list { margin: 4px 0; padding-left: 1.2em; font-size: 15.5px; line-height: 1.6; }
+  #story .story-list { margin: 4px 0; padding-left: 1.2em; font-size: 15.5px; line-height: 1.65; max-width: 46rem; }
   #story .story-list li { margin-bottom: 4px; }
 
   #story .story-temp-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
   #story .story-temp-pill { background: var(--accent); color: var(--accent-foreground); border-radius: var(--radius-full); padding: 4px 12px; font-weight: 600; font-size: 14px; }
 
-  #story .story-equation-card { border-left: 4px solid var(--viz-series-1); background: var(--muted); border-radius: var(--radius-lg); padding: 14px 16px; margin-top: 6px; }
-  #story .story-equation { font-size: 20px; margin: 0 0 6px; font-weight: 600; }
-  #story .story-equation-caption { margin: 0; font-size: 14.5px; color: var(--muted-foreground); }
+  #story .story-callout { border-radius: var(--radius-lg); padding: 15px 18px; margin-top: 6px; max-width: 46rem; border: 1px solid transparent; }
+  #story .story-callout-label { margin: 0 0 4px; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: .04em; }
+  #story .story-callout-text { margin: 0; font-size: 14.5px; line-height: 1.55; color: inherit; }
+  #story .story-callout-theory { background: linear-gradient(135deg, color-mix(in srgb, var(--viz-series-1) 14%, var(--card)), color-mix(in srgb, var(--viz-series-1) 4%, var(--card))); border-color: color-mix(in srgb, var(--viz-series-1) 25%, transparent); }
+  #story .story-callout-theory .story-callout-label { color: var(--viz-series-1); }
+  #story .story-callout-data { background: linear-gradient(135deg, color-mix(in srgb, var(--viz-series-3, var(--viz-series-1)) 16%, var(--card)), color-mix(in srgb, var(--viz-series-3, var(--viz-series-1)) 4%, var(--card))); border-color: color-mix(in srgb, var(--viz-series-3, var(--viz-series-1)) 28%, transparent); }
+  #story .story-callout-data .story-callout-label { color: var(--viz-series-3, var(--viz-series-1)); }
+  #story .story-callout-detail { background: color-mix(in srgb, var(--foreground) 5%, var(--card)); border-color: var(--border); }
+  #story .story-equation { font-size: 21px; margin: 2px 0 6px; font-weight: 700; }
+  #story .story-equation-sm { font-size: 18px; }
 
-  #story .story-stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin: 8px 0; }
+  #story .story-stat-row { display: flex; gap: 18px; flex-wrap: wrap; margin: 8px 0; }
   #story .story-stat { display: flex; flex-direction: column; gap: 2px; }
-  #story .story-stat-value { font-size: 30px; font-weight: 700; line-height: 1.1; }
+  #story .story-stat-card { padding: 14px 20px; border-radius: var(--radius-lg); background: linear-gradient(135deg, color-mix(in srgb, var(--viz-series-1) 12%, var(--card)), color-mix(in srgb, var(--viz-series-1) 3%, var(--card))); border: 1px solid color-mix(in srgb, var(--viz-series-1) 22%, transparent); }
+  #story .story-stat-value { font-size: 32px; font-weight: 700; line-height: 1.1; }
   #story .story-stat-value small { font-size: 16px; font-weight: 500; color: var(--muted-foreground); }
   #story .story-stat-unit { font-size: 13.5px; color: var(--muted-foreground); }
   #story .story-stat-alt { display: block; }
   #story .story-stat-label { font-size: 13px; color: var(--muted-foreground); margin-top: 2px; }
 
   #story .story-chart-wrap { width: 100%; margin-top: 4px; }
-  #story .story-chart-wrap svg { width: 100%; height: 220px; display: block; }
+  #story .story-chart-wrap svg { width: 100%; height: 260px; display: block; }
   #story .story-chart-wrap-dual { display: flex; gap: 20px; flex-wrap: wrap; }
   #story .story-chart-half { flex: 1 1 220px; min-width: 200px; }
-  #story .story-chart-half svg { height: 200px; }
+  #story .story-chart-half svg { height: 220px; }
   #story .story-chart-title { text-align: center; font-size: 13.5px; color: var(--muted-foreground); margin: 4px 0 0; }
 
   #story .story-bar { fill: var(--muted-foreground); }
@@ -1229,21 +1299,27 @@ html&gt;body{padding:0}&lt;/style&gt;
   #story .story-bar-label { fill: var(--foreground); font-size: 13px; }
   #story .story-bar-value { fill: var(--foreground); font-size: 13px; font-weight: 600; }
 
-  #story .story-timeline { margin-top: 10px; }
-  #story .story-timeline-track { display: flex; height: 10px; border-radius: var(--radius-full); overflow: hidden; background: var(--muted); }
-  #story .story-timeline-good { background: var(--viz-series-1); }
-  #story .story-timeline-drift { background: var(--viz-series-2, var(--destructive)); opacity: .55; }
-  #story .story-timeline-labels { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted-foreground); margin-top: 6px; }
-  #story .story-timeline-labels span:last-child { text-align: right; max-width: 40%; }
+  #story .story-axis path, #story .story-axis line { stroke: var(--border); }
+  #story .story-axis text { fill: var(--muted-foreground); font-size: 12px; }
+  #story .story-axis-title { fill: var(--muted-foreground); font-size: 12.5px; }
+  #story .story-line { fill: none; stroke-width: 2.5; }
+  #story .story-line-predicted { stroke: var(--viz-series-1); }
+  #story .story-line-illustrative { stroke: var(--viz-series-2, var(--destructive)); }
+  #story .story-line-hot { stroke: var(--red, var(--destructive)); }
+  #story .story-ref-line { stroke: var(--muted-foreground); stroke-width: 1.3; stroke-dasharray: 4 4; fill: none; }
+  #story .story-ref-label { fill: var(--muted-foreground); font-size: 11.5px; }
+  #story .story-marker { fill: var(--viz-series-1); stroke: var(--card); stroke-width: 1.5; }
+  #story .story-legend-swatch { }
+  #story .story-legend-text { fill: var(--foreground); font-size: 12px; }
 
-  #story .story-citation { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 12px; }
+  #story .story-citation { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 12px; max-width: 46rem; }
   #story .story-citation p { margin: 0 0 4px; font-size: 13.5px; color: var(--muted-foreground); }
   #story .story-citation-doi { font-family: var(--font-mono); }
 
   #story .story-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
   #story .story-nav { min-width: 40px; min-height: 40px; font-size: 20px; border-radius: var(--radius-full); }
-  #story .story-dots { display: flex; gap: 7px; }
-  #story .story-dots button { width: 9px; height: 9px; padding: 0; border-radius: 50%; border: 0; background: var(--muted); cursor: pointer; }
+  #story .story-dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 20rem; }
+  #story .story-dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: var(--muted); cursor: pointer; }
   #story .story-dots button.is-current { background: var(--viz-series-1); }
   #story .story-hint { text-align: center; font-size: 12.5px; color: var(--muted-foreground); margin: 10px 0 0; }
 
@@ -1252,8 +1328,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     #story .story-progress-seg::after { transition: none; }
   }
   @media (max-width: 560px) {
-    #story .story-slide { min-height: 480px; padding: 24px 18px; }
+    #story .story-slide { min-height: 520px; padding: 26px 18px; }
     #story .story-chart-wrap-dual { flex-direction: column; }
+    #story .story-dots { max-width: 14rem; }
   }
 &lt;/style&gt;
 
@@ -1263,15 +1340,20 @@ html&gt;body{padding:0}&lt;/style&gt;
   const root = document.getElementById(&#x27;story&#x27;);
   const track = root.querySelector(&#x27;#story-track&#x27;);
   const slides = Array.from(root.querySelectorAll(&#x27;.story-slide&#x27;));
-  const segs = Array.from(root.querySelectorAll(&#x27;.story-progress-seg&#x27;));
+  const progressBar = root.querySelector(&#x27;#story-progress&#x27;);
   const dotsContainer = root.querySelector(&#x27;#story-dots&#x27;);
   const prevBtn = root.querySelector(&#x27;#story-prev&#x27;);
   const nextBtn = root.querySelector(&#x27;#story-next&#x27;);
+  const positionLabel = root.querySelector(&#x27;#story-position&#x27;);
   const total = slides.length;
   let current = 0;
   const drawn = new Set();
 
   slides.forEach((slide, i) =&gt; {
+    const seg = document.createElement(&#x27;div&#x27;);
+    seg.className = &#x27;story-progress-seg&#x27;;
+    seg.dataset.seg = String(i);
+    progressBar.appendChild(seg);
     const dot = document.createElement(&#x27;button&#x27;);
     dot.type = &#x27;button&#x27;;
     dot.setAttribute(&#x27;role&#x27;, &#x27;tab&#x27;);
@@ -1279,6 +1361,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     dot.addEventListener(&#x27;click&#x27;, () =&gt; goTo(i));
     dotsContainer.appendChild(dot);
   });
+  const segs = Array.from(progressBar.children);
   const dots = Array.from(dotsContainer.children);
 
   function update() {
@@ -1290,6 +1373,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     dots.forEach((dot, i) =&gt; dot.classList.toggle(&#x27;is-current&#x27;, i === current));
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === total - 1;
+    positionLabel.textContent = `(${current + 1} / ${total})`;
     const chartKey = slides[current].dataset.chart;
     if (chartKey &amp;&amp; !drawn.has(chartKey)) {
       drawn.add(chartKey);
@@ -1335,6 +1419,60 @@ html&gt;body{padding:0}&lt;/style&gt;
       .text(d =&gt; opts.format(d.value)).attr(&#x27;opacity&#x27;, 0).transition().delay(400).duration(300).attr(&#x27;opacity&#x27;, 1);
   }
 
+  function lineChart(svgId, titleId, descId, title, desc, series, opts) {
+    const svg = d3.select(root.querySelector(&#x27;#&#x27; + svgId));
+    const bounds = svg.node().getBoundingClientRect();
+    const width = Math.max(280, Math.floor(bounds.width));
+    const height = Math.max(180, Math.floor(bounds.height) || 240);
+    const margin = Object.assign({ top: 18, right: 24, bottom: 40, left: 46 }, opts.margin || {});
+    svg.attr(&#x27;viewBox&#x27;, `0 0 ${width} ${height}`).attr(&#x27;preserveAspectRatio&#x27;, &#x27;xMidYMid meet&#x27;);
+    svg.selectAll(&#x27;*&#x27;).remove();
+    svg.append(&#x27;title&#x27;).attr(&#x27;id&#x27;, titleId).text(title);
+    svg.append(&#x27;desc&#x27;).attr(&#x27;id&#x27;, descId).text(desc);
+
+    const x = d3.scaleLinear().domain(opts.xDomain).range([margin.left, width - margin.right]);
+    const y = d3.scaleLinear().domain(opts.yDomain).range([height - margin.bottom, margin.top]);
+
+    svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis&#x27;).attr(&#x27;transform&#x27;, `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).ticks(opts.xTicks || 6).tickFormat(opts.xFormat || (d =&gt; d)));
+    svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis&#x27;).attr(&#x27;transform&#x27;, `translate(${margin.left},0)`)
+      .call(d3.axisLeft(y).ticks(opts.yTicks || 5).tickFormat(opts.yFormat || (d =&gt; d)));
+    if (opts.xLabel) svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis-title&#x27;).attr(&#x27;x&#x27;, (margin.left + width - margin.right) / 2).attr(&#x27;y&#x27;, height - 6).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(opts.xLabel);
+    if (opts.yLabel) svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis-title&#x27;).attr(&#x27;transform&#x27;, `translate(14 ${(margin.top + height - margin.bottom) / 2}) rotate(-90)`).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(opts.yLabel);
+
+    (opts.hRefs || []).forEach(ref =&gt; {
+      svg.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-line&#x27;).attr(&#x27;x1&#x27;, margin.left).attr(&#x27;x2&#x27;, width - margin.right).attr(&#x27;y1&#x27;, y(ref.y)).attr(&#x27;y2&#x27;, y(ref.y));
+      svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-label&#x27;).attr(&#x27;x&#x27;, width - margin.right).attr(&#x27;y&#x27;, y(ref.y) - 5).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).text(ref.label);
+    });
+    (opts.vRefs || []).forEach(ref =&gt; {
+      svg.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-line&#x27;).attr(&#x27;y1&#x27;, margin.top).attr(&#x27;y2&#x27;, height - margin.bottom).attr(&#x27;x1&#x27;, x(ref.x)).attr(&#x27;x2&#x27;, x(ref.x));
+      const roomToRight = (width - margin.right) - x(ref.x);
+      const flip = roomToRight &lt; 130;
+      svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-label&#x27;)
+        .attr(&#x27;x&#x27;, x(ref.x) + (flip ? -4 : 4)).attr(&#x27;y&#x27;, margin.top + 11)
+        .attr(&#x27;text-anchor&#x27;, flip ? &#x27;end&#x27; : &#x27;start&#x27;).text(ref.label);
+    });
+
+    const line = d3.line().x(d =&gt; x(d.x)).y(d =&gt; y(d.y));
+    series.forEach((s, i) =&gt; {
+      const path = svg.append(&#x27;path&#x27;).datum(s.points).attr(&#x27;class&#x27;, &#x27;story-line &#x27; + (s.className || &#x27;story-line-predicted&#x27;)).attr(&#x27;d&#x27;, line);
+      if (s.dashed) path.attr(&#x27;stroke-dasharray&#x27;, &#x27;6 4&#x27;);
+      const len = path.node().getTotalLength();
+      path.attr(&#x27;stroke-dasharray&#x27;, s.dashed ? &#x27;6 4&#x27; : `${len} ${len}`).attr(&#x27;stroke-dashoffset&#x27;, s.dashed ? 0 : len)
+        .transition().delay(i * 150).duration(700).ease(d3.easeCubicOut).attr(&#x27;stroke-dashoffset&#x27;, 0)
+        .on(&#x27;end interrupt&#x27;, function () { d3.select(this).attr(&#x27;stroke-dashoffset&#x27;, 0); });
+      if (s.showPoints) {
+        svg.selectAll(&#x27;circle.pt-&#x27; + i).data(s.points).join(&#x27;circle&#x27;).attr(&#x27;class&#x27;, &#x27;story-marker pt-&#x27; + i)
+          .attr(&#x27;cx&#x27;, d =&gt; x(d.x)).attr(&#x27;cy&#x27;, d =&gt; y(d.y)).attr(&#x27;r&#x27;, 0)
+          .transition().delay(500 + i * 150).duration(300).attr(&#x27;r&#x27;, 4.5);
+      }
+      if (s.label) {
+        const last = s.points[s.points.length - 1];
+        svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-label&#x27;).attr(&#x27;x&#x27;, x(last.x) - 4).attr(&#x27;y&#x27;, y(last.y) - 8).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).style(&#x27;font-weight&#x27;, 600).text(s.label);
+      }
+    });
+  }
+
   function drawChart(key) {
     if (key === &#x27;model-fit&#x27;) {
       barChart(&#x27;chart-model-fit&#x27;, &#x27;model-fit-title&#x27;, &#x27;model-fit-desc&#x27;,
@@ -1348,7 +1486,53 @@ html&gt;body{padding:0}&lt;/style&gt;
           { label: &#x27;Second order&#x27;, value: 0.662 }
         ], { max: 1, format: d =&gt; d.toFixed(3), labelWidth: 96 });
     }
-    if (key === &#x27;prediction&#x27;) {
+    if (key === &#x27;model-detail&#x27;) {
+      barChart(&#x27;chart-model-detail&#x27;, &#x27;model-detail-title&#x27;, &#x27;model-detail-desc&#x27;,
+        &#x27;Avrami model R-squared by stress temperature&#x27;,
+        &#x27;A bar chart showing the Avrami model fit quality at each of the five stress temperatures: 0.997 at 50 degrees, 0.856 at 60 degrees, 0.951 at 70 degrees, 0.959 at 75 degrees, and 0.819 at 80 degrees Celsius.&#x27;,
+        [
+          { label: &#x27;50 °C&#x27;, value: 0.997, winner: true },
+          { label: &#x27;75 °C&#x27;, value: 0.959 },
+          { label: &#x27;70 °C&#x27;, value: 0.951 },
+          { label: &#x27;60 °C&#x27;, value: 0.856 },
+          { label: &#x27;80 °C&#x27;, value: 0.819 }
+        ], { max: 1, format: d =&gt; d.toFixed(3), labelWidth: 56, suffixWidth: 48 });
+    }
+    if (key === &#x27;illustrative-decay&#x27;) {
+      const k = 0.0085;
+      const points = d3.range(0, 29, 2).map(t =&gt; ({ x: t, y: 100 * Math.exp(-k * t) }));
+      lineChart(&#x27;chart-illustrative-decay&#x27;, &#x27;illustrative-decay-title&#x27;, &#x27;illustrative-decay-desc&#x27;,
+        &#x27;Illustrative decay curve at a single stress temperature&#x27;,
+        &#x27;An illustrative line chart of drug content percent declining from 100 to about 80 percent over 28 days, used to demonstrate how a decay curve yields a rate constant. Not the paper\&#x27;s own data.&#x27;,
+        [{ points, className: &#x27;story-line-illustrative&#x27;, showPoints: false, label: &#x27;illustrative&#x27; }],
+        { xDomain: [0, 28], yDomain: [75, 101], xLabel: &#x27;Time (days)&#x27;, yLabel: &#x27;Content (%)&#x27;, yTicks: 5,
+          vRefs: [], hRefs: [] });
+    }
+    if (key === &#x27;illustrative-arrhenius&#x27;) {
+      const R = 1.987, Ea = 20000, A = 1e13;
+      const temps = [50, 60, 70, 75, 80].map(c =&gt; c + 273.15);
+      const points = temps.map(T =&gt; ({ x: 1000 / T, y: Math.log(A * Math.exp(-Ea / (R * T))) }));
+      lineChart(&#x27;chart-illustrative-arrhenius&#x27;, &#x27;illustrative-arrhenius-title&#x27;, &#x27;illustrative-arrhenius-desc&#x27;,
+        &#x27;Illustrative Arrhenius plot from five rate constants&#x27;,
+        &#x27;An illustrative Arrhenius plot showing ln of the rate constant against 1000 over T for five stress temperatures, forming a straight declining line whose slope gives the activation energy. Not the paper\&#x27;s own rate constants.&#x27;,
+        [{ points, className: &#x27;story-line-illustrative&#x27;, showPoints: true }],
+        { xDomain: [2.8, 3.15], yDomain: [-1.5, 1.6], xLabel: &#x27;1000 / T (K⁻¹)&#x27;, yLabel: &#x27;ln k (illustrative)&#x27;, xTicks: 4, yTicks: 5 });
+    }
+    if (key === &#x27;extrapolation-lines&#x27;) {
+      const months = d3.range(0, 12.01, 0.5);
+      const series = [
+        { points: months.map(m =&gt; ({ x: m, y: 100 - 0.25 * m })), className: &#x27;story-line-predicted&#x27;, label: &#x27;5 °C&#x27; },
+        { points: months.map(m =&gt; ({ x: m, y: 102 - 1.40 * m })), className: &#x27;story-line-illustrative&#x27;, label: &#x27;25 °C&#x27; },
+        { points: months.map(m =&gt; ({ x: m, y: Math.max(103 - 2.08 * m, 60) })), className: &#x27;story-line-hot&#x27;, label: &#x27;30 °C&#x27; }
+      ];
+      lineChart(&#x27;chart-extrapolation-lines&#x27;, &#x27;extrapolation-lines-title&#x27;, &#x27;extrapolation-lines-desc&#x27;,
+        &#x27;Predicted drug content over twelve months at three storage temperatures&#x27;,
+        &#x27;A line chart with three declining lines showing predicted chlorhexidine content over twelve months at 5, 25 and 30 degrees Celsius, using the paper\&#x27;s fitted equations: content equals 100 minus 0.25 times month at 5 degrees, 102 minus 1.40 times month at 25 degrees, and 103 minus 2.08 times month at 30 degrees.&#x27;,
+        series,
+        { xDomain: [0, 12], yDomain: [65, 105], xLabel: &#x27;Time (months)&#x27;, yLabel: &#x27;Predicted content (%)&#x27;, yTicks: 5,
+          hRefs: [{ y: 90, label: &#x27;LS = 90%&#x27; }] });
+    }
+    if (key === &#x27;degradation&#x27;) {
       barChart(&#x27;chart-degradation&#x27;, &#x27;degradation-title&#x27;, &#x27;degradation-desc&#x27;,
         &#x27;Predicted degradation at 365 days by storage temperature&#x27;,
         &#x27;A bar chart showing predicted percent degradation at one year for three storage temperatures: 3.1 percent at 5 degrees Celsius, 17.4 percent at 25 degrees Celsius, and 25.9 percent at 30 degrees Celsius.&#x27;,
@@ -1356,7 +1540,9 @@ html&gt;body{padding:0}&lt;/style&gt;
           { label: &#x27;5 °C&#x27;, value: 3.1 },
           { label: &#x27;25 °C&#x27;, value: 17.4, winner: true },
           { label: &#x27;30 °C&#x27;, value: 25.9 }
-        ], { max: 30, format: d =&gt; d.toFixed(1) + &#x27;%&#x27;, labelWidth: 52, suffixWidth: 44 });
+        ], { max: 30, format: d =&gt; d.toFixed(1) + &#x27;%&#x27;, labelWidth: 60, suffixWidth: 48 });
+    }
+    if (key === &#x27;shelflife&#x27;) {
       barChart(&#x27;chart-shelflife&#x27;, &#x27;shelflife-title&#x27;, &#x27;shelflife-desc&#x27;,
         &#x27;Predicted shelf life in months by storage temperature&#x27;,
         &#x27;A bar chart showing predicted shelf life in months for three storage temperatures: 26.67 months at 5 degrees Celsius, 5.75 months at 25 degrees Celsius, and 2.24 months at 30 degrees Celsius.&#x27;,
@@ -1364,7 +1550,34 @@ html&gt;body{padding:0}&lt;/style&gt;
           { label: &#x27;5 °C&#x27;, value: 26.67 },
           { label: &#x27;25 °C&#x27;, value: 5.75, winner: true },
           { label: &#x27;30 °C&#x27;, value: 2.24 }
-        ], { max: 28, format: d =&gt; d.toFixed(1) + &#x27; mo&#x27;, labelWidth: 52, suffixWidth: 52 });
+        ], { max: 28, format: d =&gt; d.toFixed(2) + &#x27; mo&#x27;, labelWidth: 60, suffixWidth: 56 });
+    }
+    if (key === &#x27;validation-5&#x27;) {
+      const months = d3.range(0, 30.01, 1);
+      lineChart(&#x27;chart-validation-5&#x27;, &#x27;validation-5-title&#x27;, &#x27;validation-5-desc&#x27;,
+        &#x27;Predicted content at 5 degrees Celsius over thirty months&#x27;,
+        &#x27;A line chart showing predicted chlorhexidine content declining slowly from 100 percent at 5 degrees Celsius, crossing the 90 percent specification limit at the predicted shelf life of 26.67 months. Real measured content, reported by the authors, tracked this prediction closely.&#x27;,
+        [{ points: months.map(m =&gt; ({ x: m, y: 100 - 0.25 * m })), className: &#x27;story-line-predicted&#x27;, label: &#x27;Predicted&#x27; }],
+        { xDomain: [0, 30], yDomain: [88, 101], xLabel: &#x27;Time (months)&#x27;, yLabel: &#x27;Content (%)&#x27;, xTicks: 6, yTicks: 5,
+          hRefs: [{ y: 90, label: &#x27;LS = 90%&#x27; }], vRefs: [{ x: 26.67, label: &#x27;Predicted shelf life: 26.67 mo&#x27; }] });
+    }
+    if (key === &#x27;validation-25&#x27;) {
+      const months = d3.range(0, 12.01, 0.5);
+      lineChart(&#x27;chart-validation-25&#x27;, &#x27;validation-25-title&#x27;, &#x27;validation-25-desc&#x27;,
+        &#x27;Predicted content at 25 degrees Celsius over twelve months&#x27;,
+        &#x27;A line chart showing predicted chlorhexidine content declining from 102 percent at 25 degrees Celsius, crossing the 90 percent specification limit near the predicted shelf life of 5.75 months. The authors report real measured content stayed close to this line for six months, then remained above it.&#x27;,
+        [{ points: months.map(m =&gt; ({ x: m, y: 102 - 1.40 * m })), className: &#x27;story-line-predicted&#x27;, label: &#x27;Predicted&#x27; }],
+        { xDomain: [0, 12], yDomain: [80, 103], xLabel: &#x27;Time (months)&#x27;, yLabel: &#x27;Content (%)&#x27;, xTicks: 6, yTicks: 5,
+          hRefs: [{ y: 90, label: &#x27;LS = 90%&#x27; }], vRefs: [{ x: 5.75, label: &#x27;Predicted shelf life: 5.75 mo&#x27; }] });
+    }
+    if (key === &#x27;validation-30&#x27;) {
+      const months = d3.range(0, 12.01, 0.5);
+      lineChart(&#x27;chart-validation-30&#x27;, &#x27;validation-30-title&#x27;, &#x27;validation-30-desc&#x27;,
+        &#x27;Predicted content at 30 degrees Celsius over twelve months&#x27;,
+        &#x27;A line chart showing predicted chlorhexidine content declining from 103 percent at 30 degrees Celsius, crossing the 90 percent specification limit near the predicted shelf life of 2.24 months. The authors report real measured content diverged furthest above this line of the three conditions tested.&#x27;,
+        [{ points: months.map(m =&gt; ({ x: m, y: 103 - 2.08 * m })), className: &#x27;story-line-predicted&#x27;, label: &#x27;Predicted&#x27; }],
+        { xDomain: [0, 12], yDomain: [70, 105], xLabel: &#x27;Time (months)&#x27;, yLabel: &#x27;Content (%)&#x27;, xTicks: 6, yTicks: 5,
+          hRefs: [{ y: 90, label: &#x27;LS = 90%&#x27; }], vRefs: [{ x: 2.24, label: &#x27;Predicted shelf life: 2.24 mo&#x27; }] });
     }
     if (key === &#x27;before-after&#x27;) {
       barChart(&#x27;chart-before-after&#x27;, &#x27;before-after-title&#x27;, &#x27;before-after-desc&#x27;,
