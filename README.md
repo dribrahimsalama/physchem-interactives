@@ -17,6 +17,7 @@ thermodynamics/enthalpy-entropy/index.html   Enthalpy & entropy
 thermodynamics/gibbs-energy/index.html       Gibbs energy
 kinetics/rate-laws/index.html                Rate laws
 kinetics/arrhenius/index.html                Arrhenius equation
+kinetics/shelf-life-prediction/index.html    Arrhenius in practice: drug shelf-life case study
 equilibria/le-chatelier/index.html           Le Chatelier's principle
 electrochemistry/nernst-equation/index.html  Nernst equation
 ```
