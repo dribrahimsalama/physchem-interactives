@@ -6,7 +6,7 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Predicting Drug Shelf Life Explorer</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:52rem;height:640px;max-height:calc(100vh - 2rem);margin:0 auto;border:0}body{display:flex;justify-content:center;}</style>
 </head>
 <body>
 <iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Predicting Drug Shelf Life Explorer" srcdoc="&lt;!doctype html&gt;
@@ -1072,16 +1072,16 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;2&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;Why this equation? &amp;middot; 1 of 2&lt;/p&gt;
         &lt;h2&gt;Reaction rates don&#x27;t rise gently with temperature &amp;mdash; they rise exponentially&lt;/h2&gt;
-        &lt;p&gt;A rule of thumb in chemical kinetics: many reactions roughly double or triple in rate for every 10&amp;nbsp;&amp;deg;C rise. That&#x27;s not a coincidence &amp;mdash; it falls directly out of the Arrhenius equation&#x27;s exponential term.&lt;/p&gt;
-        &lt;p&gt;The practical consequence is powerful: because the relationship between rate and temperature has exactly &lt;strong&gt;two&lt;/strong&gt; unknowns (&lt;em&gt;A&lt;/em&gt; and &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;a&lt;/sub&gt;), measuring the degradation rate at just a handful of temperatures is enough to solve for both &amp;mdash; and then predict the rate at &lt;em&gt;any&lt;/em&gt; other temperature, including one nobody directly tested for months.&lt;/p&gt;
-        &lt;p class=&quot;story-see-also&quot;&gt;See also, in this collection: the interactive Arrhenius equation explorer, which lets you play with exactly this relationship.&lt;/p&gt;
+        &lt;p&gt;A rule of thumb in chemical kinetics: many reactions roughly double or triple in rate for every 10&amp;nbsp;&amp;deg;C rise &amp;mdash; a direct consequence of the Arrhenius equation&#x27;s exponential term.&lt;/p&gt;
+        &lt;p&gt;That relationship has only &lt;strong&gt;two&lt;/strong&gt; unknowns, &lt;em&gt;A&lt;/em&gt; and &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;a&lt;/sub&gt;. Measuring the rate at a handful of temperatures is enough to solve for both &amp;mdash; and then predict the rate at &lt;em&gt;any&lt;/em&gt; other temperature, including one nobody tested for months.&lt;/p&gt;
+        &lt;p class=&quot;story-see-also&quot;&gt;See also, in this collection: the interactive Arrhenius equation explorer.&lt;/p&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;3&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;Why this equation? &amp;middot; 2 of 2&lt;/p&gt;
         &lt;h2&gt;It&#x27;s fast enough to actually be useful in a hospital pharmacy&lt;/h2&gt;
-        &lt;p&gt;The alternative &amp;mdash; real-time ICH stability testing &amp;mdash; takes 6&amp;ndash;12+ months and is expensive, which is exactly why hospital-compounded formulations rarely get it, and end up with conservative, no-data expiry dates by default.&lt;/p&gt;
-        &lt;p&gt;Accelerated Predictive Stability (APS) studies compress that into &lt;strong&gt;3&amp;ndash;4 weeks&lt;/strong&gt; by combining extreme temperatures (50&amp;ndash;80&amp;nbsp;&amp;deg;C) with elevated humidity. This is the first published attempt to apply that industrial technique to a hospital-compounded formulation rather than a mass-manufactured drug.&lt;/p&gt;
+        &lt;p&gt;Real-time ICH stability testing takes 6&amp;ndash;12+ months and is expensive &amp;mdash; exactly why hospital-compounded formulations rarely get it, and default to conservative, no-data expiry dates.&lt;/p&gt;
+        &lt;p&gt;Accelerated Predictive Stability (APS) compresses that into &lt;strong&gt;3&amp;ndash;4 weeks&lt;/strong&gt;, combining extreme temperatures (50&amp;ndash;80&amp;nbsp;&amp;deg;C) with elevated humidity &amp;mdash; the first published attempt to apply it to a hospital-compounded formulation rather than a mass-manufactured drug.&lt;/p&gt;
         &lt;div class=&quot;story-callout story-callout-detail&quot;&gt;
           &lt;p class=&quot;story-callout-text&quot;&gt;&lt;strong&gt;~12&amp;times; faster:&lt;/strong&gt; a 3&amp;ndash;4 week accelerated study standing in for a 6&amp;ndash;12+ month real-time one.&lt;/p&gt;
         &lt;/div&gt;
@@ -1117,13 +1117,13 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;6&quot; data-chart=&quot;model-detail&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 1b&lt;/p&gt;
         &lt;h2&gt;A closer look at the winning model: Avrami&lt;/h2&gt;
-        &lt;p&gt;The Avrami model &amp;mdash; common in pharmaceutical degradation, where several competing and reversible reactions occur at once &amp;mdash; describes the fraction degraded, &amp;alpha;, over time &lt;em&gt;t&lt;/em&gt;:&lt;/p&gt;
+        &lt;p&gt;Avrami describes the fraction degraded, &amp;alpha;(&lt;em&gt;t&lt;/em&gt;) &amp;mdash; common in pharmaceutical kinetics, where several reactions compete at once:&lt;/p&gt;
         &lt;div class=&quot;story-callout story-callout-theory&quot;&gt;
           &lt;p class=&quot;story-equation story-equation-sm&quot;&gt;&amp;alpha;(&lt;em&gt;t&lt;/em&gt;) = 1 &amp;minus; exp[&amp;minus;(&lt;em&gt;kt&lt;/em&gt;)&lt;sup&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sup&gt;]&lt;/p&gt;
-          &lt;p class=&quot;story-callout-text&quot;&gt;General form of the model (standard pharmaceutical kinetics). &lt;em&gt;k&lt;/em&gt; is the rate constant that feeds into the Arrhenius equation; &lt;em&gt;n&lt;/em&gt; reflects the degradation mechanism. The paper reports the fit quality (R&amp;sup2;) at each temperature, not the individual &lt;em&gt;k&lt;/em&gt;/&lt;em&gt;n&lt;/em&gt; values.&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;General form (standard kinetics); &lt;em&gt;k&lt;/em&gt; feeds into the Arrhenius equation. The paper reports R&amp;sup2; per temperature, not the individual &lt;em&gt;k&lt;/em&gt;/&lt;em&gt;n&lt;/em&gt; values.&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-model-detail&quot; role=&quot;img&quot; aria-labelledby=&quot;model-detail-title model-detail-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
-        &lt;p class=&quot;story-caption&quot;&gt;Avrami-model R&amp;sup2; at each stress temperature. The fit is strongest at 50&amp;nbsp;&amp;deg;C and weakest at 60&amp;nbsp;&amp;deg;C, but stays reasonable throughout.&lt;/p&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Avrami R&amp;sup2; per stress temperature: strongest at 50&amp;nbsp;&amp;deg;C, weakest at 60&amp;nbsp;&amp;deg;C.&lt;/p&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;7&quot; data-chart=&quot;illustrative-decay&quot;&gt;
@@ -1205,12 +1205,12 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;16&quot;&gt;
         &lt;p class=&quot;story-kicker&quot;&gt;Why the small gap?&lt;/p&gt;
         &lt;h2&gt;The model was conservative &amp;mdash; and the authors explain exactly why&lt;/h2&gt;
-        &lt;p&gt;In every condition, the model predicted &lt;em&gt;more&lt;/em&gt; degradation than was actually measured, and the gap grew after about six months. The authors traced this to a known confound: the accelerated study used sealed glass HPLC vials, while the long-term study used a mix of glass and plastic containers &amp;mdash; which lose water at very different rates. Water loss concentrates the remaining solution, which can mask true degradation.&lt;/p&gt;
+        &lt;p&gt;In every condition, the model predicted &lt;em&gt;more&lt;/em&gt; degradation than was measured &amp;mdash; a gap that grew after ~6 months. The authors traced this to a known confound: the accelerated study used sealed glass vials, while the long-term study used glass and plastic containers, which lose water at very different rates and can mask true degradation.&lt;/p&gt;
         &lt;div class=&quot;story-callout story-callout-data&quot;&gt;
           &lt;p class=&quot;story-callout-label&quot;&gt;Measured evaporation, refrigerated storage&lt;/p&gt;
           &lt;p class=&quot;story-callout-text&quot;&gt;&lt;strong&gt;Amber glass:&lt;/strong&gt; ~0.0000%/day &amp;nbsp;&amp;middot;&amp;nbsp; &lt;strong&gt;Clear glass:&lt;/strong&gt; ~0.0002%/day &amp;nbsp;&amp;middot;&amp;nbsp; &lt;strong&gt;Clear plastic:&lt;/strong&gt; ~0.0026%/day &amp;nbsp;&amp;middot;&amp;nbsp; &lt;strong&gt;Amber plastic:&lt;/strong&gt; ~0.0039%/day&lt;/p&gt;
         &lt;/div&gt;
-        &lt;p class=&quot;story-note&quot;&gt;Glass barely breathes; plastic does &amp;mdash; over a year, that difference is enough to matter. A deviation with a diagnosed, quantified cause is a very different thing from a model that simply failed.&lt;/p&gt;
+        &lt;p class=&quot;story-note&quot;&gt;Glass barely breathes; plastic does. A deviation with a diagnosed, quantified cause is very different from a model that simply failed.&lt;/p&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;story-slide&quot; data-slide=&quot;17&quot; data-chart=&quot;before-after&quot;&gt;
@@ -1244,7 +1244,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
 &lt;style&gt;
   #story { color: var(--foreground); max-width: 52rem; margin: 0 auto; }
-  #story .story-progress { display: flex; gap: 4px; margin-bottom: 18px; }
+  #story .story-progress { display: flex; gap: 4px; margin-bottom: 12px; }
   #story .story-progress-seg { flex: 1; height: 4px; border-radius: 2px; background: var(--muted); overflow: hidden; }
   #story .story-progress-seg::after { content: &quot;&quot;; display: block; height: 100%; width: 0%; background: var(--viz-series-1); transition: width 240ms ease; }
   #story .story-progress-seg.is-done::after, #story .story-progress-seg.is-current::after { width: 100%; }
@@ -1313,12 +1313,12 @@ html&gt;body{padding:0}&lt;/style&gt;
   #story .story-citation p { margin: 0 0 4px; font-size: 12.5px; color: var(--muted-foreground); }
   #story .story-citation-doi { font-family: var(--font-mono); }
 
-  #story .story-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
+  #story .story-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 10px; }
   #story .story-nav { min-width: 40px; min-height: 40px; font-size: 20px; border-radius: var(--radius-full); }
   #story .story-dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 20rem; }
   #story .story-dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: var(--muted); cursor: pointer; }
   #story .story-dots button.is-current { background: var(--viz-series-1); }
-  #story .story-hint { text-align: center; font-size: 12.5px; color: var(--muted-foreground); margin: 10px 0 0; }
+  #story .story-hint { text-align: center; font-size: 12px; color: var(--muted-foreground); margin: 6px 0 0; }
 
   @media (prefers-reduced-motion: reduce) {
     #story .story-track { transition: none; }
