@@ -1,0 +1,1483 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Gibbs Energy in Practice: The Coral Reef Tipping Point</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:52rem;height:640px;max-height:calc(100vh - 2rem);margin:0 auto;border:0}body{display:flex;justify-content:center;}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Gibbs Energy in Practice: The Coral Reef Tipping Point" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Gibbs Energy in Practice: Coral Reef Tipping Point&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) &gt; body {
+  padding: 12px;
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock&#x27;s pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;story&quot; class=&quot;story&quot; aria-roledescription=&quot;slide deck&quot; aria-label=&quot;Gibbs energy in practice: predicting the coral reef tipping point&quot;&gt;
+  &lt;div class=&quot;story-progress&quot; role=&quot;presentation&quot; id=&quot;story-progress&quot;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;story-viewport&quot;&gt;
+    &lt;div class=&quot;story-track&quot; id=&quot;story-track&quot;&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;0&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;A real climate tipping point&lt;/p&gt;
+        &lt;h2&gt;Why will some coral reefs start dissolving before they even bleach?&lt;/h2&gt;
+        &lt;p class=&quot;story-lede&quot;&gt;Ocean acidification is usually framed as a threat to how &lt;em&gt;fast&lt;/em&gt; corals can build new skeleton. A 2018 study in &lt;em&gt;Science&lt;/em&gt; showed something sharper: the sand and rubble that already make up a reef can start dissolving away, releasing stored carbonate back into the water &amp;mdash; and scientists can predict exactly when, using nothing more than &lt;strong&gt;&amp;Delta;G = &amp;Delta;H &amp;minus; T&amp;Delta;S&lt;/strong&gt;.&lt;/p&gt;
+        &lt;p class=&quot;story-source&quot;&gt;Sources: peer-reviewed &amp;mdash; &lt;em&gt;Science&lt;/em&gt; (2018); &lt;em&gt;Geochimica et Cosmochimica Acta&lt;/em&gt; (1982)&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;1&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The Gibbs energy equation&lt;/p&gt;
+        &lt;h2&gt;&amp;Delta;G = &amp;Delta;H &amp;minus; T&amp;Delta;S&lt;/h2&gt;
+        &lt;p&gt;The process in question is deceptively simple: does a crystal of calcium carbonate &amp;mdash; the mineral coral skeletons and reef sand are made of &amp;mdash; dissolve, or does it grow?&lt;/p&gt;
+        &lt;div class=&quot;story-callout story-callout-theory&quot;&gt;
+          &lt;p class=&quot;story-callout-label&quot;&gt;The reaction&lt;/p&gt;
+          &lt;p class=&quot;story-equation&quot;&gt;CaCO&lt;sub&gt;3&lt;/sub&gt;(s) &amp;#8652; Ca&lt;sup&gt;2+&lt;/sup&gt;(aq) + CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&amp;minus;&lt;/sup&gt;(aq)&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;&amp;Delta;G tells you which way this arrow runs. &amp;Delta;G &amp;lt; 0: dissolution happens on its own. &amp;Delta;G &amp;gt; 0: the reverse, precipitation, is what happens on its own.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;2&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why this equation? &amp;middot; 1 of 2&lt;/p&gt;
+        &lt;h2&gt;Enthalpy alone can&#x27;t tell you which way a reaction goes&lt;/h2&gt;
+        &lt;p&gt;It&#x27;s tempting to assume &quot;releases heat&quot; means &quot;happens easily.&quot; That&#x27;s only half the story. The other half is entropy &amp;mdash; how disordered the system becomes &amp;mdash; and for an ionic solid dissolving in water, the entropy term is often what actually decides the outcome.&lt;/p&gt;
+        &lt;p class=&quot;story-see-also&quot;&gt;See also, in this collection: the interactive Gibbs energy explorer.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;3&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why this equation? &amp;middot; 2 of 2&lt;/p&gt;
+        &lt;h2&gt;It turns a decades-old solubility measurement into a climate prediction&lt;/h2&gt;
+        &lt;p&gt;Geochemists have carefully measured how the solubility constant (&lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt;) of calcium carbonate changes with temperature since the early 1980s. Because &lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt; is just a disguised form of &amp;Delta;G&amp;deg;, that one temperature-dependence curve secretly contains &amp;Delta;H&amp;deg; and &amp;Delta;S&amp;deg; too &amp;mdash; no new experiment required, just calculus applied to an equation the original authors already published.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;4&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The measurement&lt;/p&gt;
+        &lt;h2&gt;How soluble is coral mineral, and how does that change with temperature?&lt;/h2&gt;
+        &lt;ul class=&quot;story-list&quot;&gt;
+          &lt;li&gt;Plummer &amp;amp; Busenberg (1982), &lt;em&gt;Geochimica et Cosmochimica Acta&lt;/em&gt; &amp;mdash; one of the most cited papers in marine chemistry (1,800+ citations)&lt;/li&gt;
+          &lt;li&gt;Measured the solubility constant of &lt;strong&gt;aragonite&lt;/strong&gt; &amp;mdash; the exact mineral corals build their skeletons from &amp;mdash; across 0&amp;ndash;90&amp;nbsp;&amp;deg;C&lt;/li&gt;
+          &lt;li&gt;At 25&amp;nbsp;&amp;deg;C: log&lt;sub&gt;10&lt;/sub&gt;&lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt; = &amp;minus;8.336 &amp;plusmn; 0.020 &amp;mdash; only a few micromoles of CaCO&lt;sub&gt;3&lt;/sub&gt; dissolve per litre of pure water&lt;/li&gt;
+          &lt;li&gt;Reported as one smooth equation fit to hundreds of individual solubility measurements&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;5&quot; data-chart=&quot;ksp-curve&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 1&lt;/p&gt;
+        &lt;h2&gt;The published solubility curve, over the full measured range&lt;/h2&gt;
+        &lt;p&gt;This is the paper&#x27;s own equation, evaluated continuously from 0 to 90&amp;nbsp;&amp;deg;C &amp;mdash; not a sketch. Aragonite becomes &lt;em&gt;less&lt;/em&gt; soluble as the ocean warms, a clue that &amp;Delta;H&amp;deg; for dissolving it is small.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-ksp-curve&quot; role=&quot;img&quot; aria-labelledby=&quot;ksp-curve-title ksp-curve-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;log&lt;sub&gt;10&lt;/sub&gt;&lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt; for aragonite vs. temperature, from Plummer &amp;amp; Busenberg&#x27;s fitted equation. Marker at 25&amp;nbsp;&amp;deg;C.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;6&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 2&lt;/p&gt;
+        &lt;h2&gt;One curve, three thermodynamic numbers&lt;/h2&gt;
+        &lt;p&gt;&amp;Delta;G&amp;deg; = &amp;minus;&lt;em&gt;RT&lt;/em&gt;ln&lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt;, and &amp;Delta;H&amp;deg; = &lt;em&gt;RT&lt;/em&gt;&amp;sup2;&amp;middot;d(ln&lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt;)/d&lt;em&gt;T&lt;/em&gt; &amp;mdash; both direct, standard consequences of the curve on the previous slide. &amp;Delta;S&amp;deg; then follows from the Gibbs equation itself.&lt;/p&gt;
+        &lt;div class=&quot;story-stat-row&quot;&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;+47.6&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;kJ&amp;nbsp;mol&amp;#8315;&amp;sup1;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;&amp;Delta;G&amp;deg; at 25 &amp;deg;C (standard, 1&amp;nbsp;M ions)&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;&amp;minus;10.8&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;kJ&amp;nbsp;mol&amp;#8315;&amp;sup1;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;&amp;Delta;H&amp;deg; &amp;mdash; mildly exothermic&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;&amp;minus;196&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;J&amp;nbsp;mol&amp;#8315;&amp;sup1;K&amp;#8315;&amp;sup1;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;&amp;Delta;S&amp;deg; &amp;mdash; strongly unfavorable&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;story-note&quot;&gt;Computed directly from Plummer &amp;amp; Busenberg&#x27;s published log&amp;nbsp;&lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt;(&lt;em&gt;T&lt;/em&gt;) equation for aragonite &amp;mdash; not independently measured, but an exact thermodynamic consequence of their fit.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;7&quot; data-chart=&quot;enthalpy-entropy&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 3&lt;/p&gt;
+        &lt;h2&gt;Entropy, not enthalpy, is what&#x27;s actually stopping this reaction&lt;/h2&gt;
+        &lt;p&gt;Breaking apart the ionic lattice costs almost nothing in energy terms. The real cost is entropic: freeing Ca&lt;sup&gt;2+&lt;/sup&gt; and CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&amp;minus;&lt;/sup&gt; forces nearby water molecules into a rigid, ordered cage around each highly-charged ion.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-enthalpy-entropy&quot; role=&quot;img&quot; aria-labelledby=&quot;enthalpy-entropy-title enthalpy-entropy-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;Magnitude of each term in &amp;Delta;G&amp;deg; = &amp;Delta;H&amp;deg; &amp;minus; T&amp;Delta;S&amp;deg; at 25&amp;nbsp;&amp;deg;C. The entropy penalty outweighs the enthalpy release more than fivefold.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;8&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;From the lab to the ocean&lt;/p&gt;
+        &lt;h2&gt;In real seawater, it isn&#x27;t &amp;Delta;G&amp;deg; that matters &amp;mdash; it&#x27;s &amp;Omega;&lt;/h2&gt;
+        &lt;p&gt;&amp;Delta;G&amp;deg; above assumes a hypothetical 1&amp;nbsp;mol/L solution of each ion &amp;mdash; nothing like the ocean. For real seawater, the same thermodynamics collapses to one ratio: the saturation state, &amp;Omega; = [Ca&lt;sup&gt;2+&lt;/sup&gt;][CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&amp;minus;&lt;/sup&gt;] / &lt;em&gt;K&lt;/em&gt;&lt;sub&gt;sp&lt;/sub&gt;.&lt;/p&gt;
+        &lt;div class=&quot;story-callout story-callout-theory&quot;&gt;
+          &lt;p class=&quot;story-equation story-equation-sm&quot;&gt;&amp;Delta;G = &lt;em&gt;RT&lt;/em&gt; ln &amp;Omega;&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;&amp;Omega; &amp;gt; 1: supersaturated, CaCO&lt;sub&gt;3&lt;/sub&gt; tends to form. &amp;Omega; &amp;lt; 1: undersaturated, CaCO&lt;sub&gt;3&lt;/sub&gt; tends to dissolve. &amp;Omega; = 1 is the knife-edge, &amp;Delta;G = 0. Dissolving CO&lt;sub&gt;2&lt;/sub&gt; into seawater lowers [CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&amp;minus;&lt;/sup&gt;] &amp;mdash; and with it, &amp;Omega;.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;9&quot; data-chart=&quot;gibbs-omega&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Results &amp;middot; step 4&lt;/p&gt;
+        &lt;h2&gt;Where the real reef actually crosses zero&lt;/h2&gt;
+        &lt;p&gt;The curve below is the exact relationship &amp;Delta;G = &lt;em&gt;RT&lt;/em&gt;ln&amp;Omega; &amp;mdash; not a sketch. A 2018 global study measured where a real reef&#x27;s sediment actually tips into net dissolution.&lt;/p&gt;
+        &lt;div class=&quot;story-chart-wrap&quot;&gt;&lt;svg id=&quot;chart-gibbs-omega&quot; role=&quot;img&quot; aria-labelledby=&quot;gibbs-omega-title gibbs-omega-desc&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+        &lt;p class=&quot;story-caption&quot;&gt;The measured tipping point sits well before the idealized &amp;Omega; = 1 line &amp;mdash; see why on slide 11.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;10&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The real-world finding&lt;/p&gt;
+        &lt;h2&gt;A 2018 global study measured exactly where that line falls&lt;/h2&gt;
+        &lt;div class=&quot;story-stat-row&quot;&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;2.92 &lt;small&gt;&amp;plusmn; 0.16&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;measured across 5 globally distributed reef sites&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;Critical &amp;Omega;&lt;sub&gt;arag&lt;/sub&gt;&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;10&amp;times;&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;more sensitive to acidification than coral calcification itself&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;Sediment dissolution sensitivity&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;story-stat story-stat-card&quot;&gt;
+            &lt;span class=&quot;story-stat-value&quot;&gt;&amp;asymp;2050&lt;/span&gt;
+            &lt;span class=&quot;story-stat-unit&quot;&gt;on current emissions trends&lt;/span&gt;
+            &lt;span class=&quot;story-stat-label&quot;&gt;Expected global crossing&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;story-note&quot;&gt;Some reef sites are already experiencing net sediment dissolution today. Source: Eyre, Cyronak, Drupp, De Carlo, Sachs &amp;amp; Andersson, &lt;em&gt;Science&lt;/em&gt; 359(6378), 2018.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;11&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why doesn&#x27;t it happen exactly at &amp;Omega; = 1?&lt;/p&gt;
+        &lt;h2&gt;The water that touches the sand isn&#x27;t the water sampled from a boat&lt;/h2&gt;
+        &lt;p&gt;Reef sediment isn&#x27;t inert sand &amp;mdash; it&#x27;s packed with bacteria respiring organic matter, which locally produces CO&lt;sub&gt;2&lt;/sub&gt; and pushes the &lt;em&gt;pore water&lt;/em&gt;&#x27;s own saturation state below the open-ocean value measured overhead. The grains &quot;feel&quot; a more corrosive &amp;Omega; than the headline number reports.&lt;/p&gt;
+        &lt;div class=&quot;story-callout story-callout-data&quot;&gt;
+          &lt;p class=&quot;story-callout-label&quot;&gt;Supporting mechanism&lt;/p&gt;
+          &lt;p class=&quot;story-callout-text&quot;&gt;Andersson (2015, &lt;em&gt;Frontiers in Marine Science&lt;/em&gt;) traces reef sediment dissolution to exactly this: the extent of organic matter decomposition needed to push local pore water past its own &quot;Carbonate Critical Threshold.&quot;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;story-note&quot;&gt;A deviation with a diagnosed, quantified cause &amp;mdash; not a model that simply failed.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;12&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;Why this matters&lt;/p&gt;
+        &lt;h2&gt;Hundreds of millions of people depend on the sign of &amp;Delta;G staying negative&lt;/h2&gt;
+        &lt;p&gt;Coral reefs feed millions of people worldwide, provide coastal protection, and generate billions of dollars annually in tourism revenue (Albright et al., &lt;em&gt;Nature&lt;/em&gt;, 2018). Roughly 500 million people derive food, income and coastal protection from reef ecosystems (Hoegh-Guldberg et al., &lt;em&gt;Frontiers in Marine Science&lt;/em&gt;, 2017).&lt;/p&gt;
+        &lt;p&gt;Thermodynamics turns a vague worry &amp;mdash; &quot;acidification is bad for reefs&quot; &amp;mdash; into a falling number with a measured, citable threshold.&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;story-slide&quot; data-slide=&quot;13&quot;&gt;
+        &lt;p class=&quot;story-kicker&quot;&gt;The takeaway&lt;/p&gt;
+        &lt;h2&gt;One equation, a 1982 solubility curve, a 2018 global measurement&lt;/h2&gt;
+        &lt;p&gt;This is what the Gibbs energy equation is for outside the classroom: one thermodynamic relationship, applied to a decades-old solubility fit, predicting exactly when &amp;mdash; and mechanistically why &amp;mdash; one of the planet&#x27;s most important ecosystems starts to dissolve.&lt;/p&gt;
+        &lt;p class=&quot;story-see-also&quot;&gt;See also, in this collection: the interactive Gibbs energy explorer.&lt;/p&gt;
+        &lt;div class=&quot;story-citation&quot;&gt;
+          &lt;p&gt;Plummer, L.N.; Busenberg, E. The solubilities of calcite, aragonite and vaterite in CO&lt;sub&gt;2&lt;/sub&gt;-H&lt;sub&gt;2&lt;/sub&gt;O solutions between 0 and 90&amp;deg;C. &lt;em&gt;Geochimica et Cosmochimica Acta&lt;/em&gt; &lt;strong&gt;1982&lt;/strong&gt;, &lt;em&gt;46&lt;/em&gt;(5), 1011&amp;ndash;1040.&lt;/p&gt;
+          &lt;p&gt;Eyre, B.D.; Cyronak, T.; Drupp, P.; De Carlo, E.H.; Sachs, J.P.; Andersson, A.J. Coral reefs will transition to net dissolving before end of century. &lt;em&gt;Science&lt;/em&gt; &lt;strong&gt;2018&lt;/strong&gt;, &lt;em&gt;359&lt;/em&gt;(6378), 908&amp;ndash;911.&lt;/p&gt;
+          &lt;p&gt;Andersson, A.J. A fundamental paradigm for coral reef carbonate sediment dissolution. &lt;em&gt;Frontiers in Marine Science&lt;/em&gt; &lt;strong&gt;2015&lt;/strong&gt;, &lt;em&gt;2&lt;/em&gt;, 52.&lt;/p&gt;
+          &lt;p class=&quot;story-citation-doi&quot;&gt;doi.org/10.1016/0016-7037(82)90056-4 &amp;middot; doi.org/10.1126/science.aao1118 &amp;middot; doi.org/10.3389/fmars.2015.00052&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;story-controls&quot;&gt;
+    &lt;button type=&quot;button&quot; id=&quot;story-prev&quot; class=&quot;btn story-nav&quot; aria-label=&quot;Previous slide&quot;&gt;&amp;lsaquo;&lt;/button&gt;
+    &lt;div class=&quot;story-dots&quot; id=&quot;story-dots&quot; role=&quot;tablist&quot; aria-label=&quot;Slide navigation&quot;&gt;&lt;/div&gt;
+    &lt;button type=&quot;button&quot; id=&quot;story-next&quot; class=&quot;btn story-nav&quot; aria-label=&quot;Next slide&quot;&gt;&amp;rsaquo;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;story-hint&quot;&gt;Use the arrow keys or the buttons above to move through the story. &lt;span id=&quot;story-position&quot; class=&quot;tabular-nums&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  #story { color: var(--foreground); max-width: 52rem; margin: 0 auto; }
+  #story .story-progress { display: flex; gap: 4px; margin-bottom: 12px; }
+  #story .story-progress-seg { flex: 1; height: 4px; border-radius: 2px; background: var(--muted); overflow: hidden; }
+  #story .story-progress-seg::after { content: &quot;&quot;; display: block; height: 100%; width: 0%; background: var(--viz-series-1); transition: width 240ms ease; }
+  #story .story-progress-seg.is-done::after, #story .story-progress-seg.is-current::after { width: 100%; }
+
+  #story .story-viewport { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-2xl); background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px -12px rgba(0,0,0,.12); }
+  #story .story-track { display: flex; transition: transform 420ms cubic-bezier(.4,0,.2,1); }
+  #story .story-slide { flex: 0 0 100%; box-sizing: border-box; padding: 24px clamp(18px, 4vw, 40px); min-height: 360px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+
+  #story .story-kicker { margin: 0; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; font-weight: 600; color: var(--viz-series-1); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  #story .story-badge { text-transform: none; letter-spacing: normal; font-weight: 600; font-size: 11.5px; color: var(--viz-series-2, var(--destructive)); background: color-mix(in srgb, var(--viz-series-2, var(--destructive)) 16%, transparent); border-radius: var(--radius-full); padding: 2px 9px; }
+  #story .story-slide h2 { font-size: clamp(19px, 2.3vw, 25px); line-height: 1.25; margin: 0 0 4px; max-width: 40rem; }
+  #story .story-lede { font-size: 15.5px; }
+  #story .story-slide p { font-size: 14.5px; line-height: 1.55; color: var(--foreground); max-width: 42rem; }
+  #story .story-source, #story .story-caption, #story .story-note { color: var(--muted-foreground); font-size: 12.5px; }
+  #story .story-see-also { font-style: italic; color: var(--muted-foreground); }
+
+  #story .story-list { margin: 4px 0; padding-left: 1.2em; font-size: 14.5px; line-height: 1.55; max-width: 42rem; }
+  #story .story-list li { margin-bottom: 4px; }
+
+  #story .story-callout { border-radius: var(--radius-lg); padding: 12px 16px; margin-top: 4px; max-width: 42rem; border: 1px solid transparent; }
+  #story .story-callout-label { margin: 0 0 4px; font-weight: 700; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; }
+  #story .story-callout-text { margin: 0; font-size: 13.5px; line-height: 1.5; color: inherit; }
+  #story .story-callout-theory { background: linear-gradient(135deg, color-mix(in srgb, var(--viz-series-1) 14%, var(--card)), color-mix(in srgb, var(--viz-series-1) 4%, var(--card))); border-color: color-mix(in srgb, var(--viz-series-1) 25%, transparent); }
+  #story .story-callout-theory .story-callout-label { color: var(--viz-series-1); }
+  #story .story-callout-data { background: linear-gradient(135deg, color-mix(in srgb, var(--viz-series-3, var(--viz-series-1)) 16%, var(--card)), color-mix(in srgb, var(--viz-series-3, var(--viz-series-1)) 4%, var(--card))); border-color: color-mix(in srgb, var(--viz-series-3, var(--viz-series-1)) 28%, transparent); }
+  #story .story-callout-data .story-callout-label { color: var(--viz-series-3, var(--viz-series-1)); }
+  #story .story-callout-detail { background: color-mix(in srgb, var(--foreground) 5%, var(--card)); border-color: var(--border); }
+  #story .story-equation { font-size: 18px; margin: 2px 0 6px; font-weight: 700; }
+  #story .story-equation-sm { font-size: 16px; }
+
+  #story .story-stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0; }
+  #story .story-stat { display: flex; flex-direction: column; gap: 2px; }
+  #story .story-stat-card { padding: 10px 16px; border-radius: var(--radius-lg); background: linear-gradient(135deg, color-mix(in srgb, var(--viz-series-1) 12%, var(--card)), color-mix(in srgb, var(--viz-series-1) 3%, var(--card))); border: 1px solid color-mix(in srgb, var(--viz-series-1) 22%, transparent); max-width: 15rem; }
+  #story .story-stat-value { font-size: 26px; font-weight: 700; line-height: 1.1; }
+  #story .story-stat-value small { font-size: 14px; font-weight: 500; color: var(--muted-foreground); }
+  #story .story-stat-unit { font-size: 12.5px; color: var(--muted-foreground); }
+  #story .story-stat-alt { display: block; }
+  #story .story-stat-label { font-size: 12px; color: var(--muted-foreground); margin-top: 2px; }
+
+  #story .story-chart-wrap { width: 100%; margin-top: 2px; }
+  #story .story-chart-wrap svg { width: 100%; height: 200px; display: block; }
+  #story .story-chart-title { text-align: center; font-size: 12.5px; color: var(--muted-foreground); margin: 4px 0 0; }
+
+  #story .story-bar { fill: var(--muted-foreground); }
+  #story .story-bar.is-winner { fill: var(--viz-series-1); }
+  #story .story-bar-label { fill: var(--foreground); font-size: 13px; }
+  #story .story-bar-value { fill: var(--foreground); font-size: 13px; font-weight: 600; }
+
+  #story .story-axis path, #story .story-axis line { stroke: var(--border); }
+  #story .story-axis text { fill: var(--muted-foreground); font-size: 12px; }
+  #story .story-axis-title { fill: var(--muted-foreground); font-size: 12.5px; }
+  #story .story-line { fill: none; stroke-width: 2.5; }
+  #story .story-line-predicted { stroke: var(--viz-series-1); }
+  #story .story-line-illustrative { stroke: var(--viz-series-2, var(--destructive)); }
+  #story .story-line-hot { stroke: var(--red, var(--destructive)); }
+  #story .story-ref-line { stroke: var(--muted-foreground); stroke-width: 1.3; stroke-dasharray: 4 4; fill: none; }
+  #story .story-ref-label { fill: var(--muted-foreground); font-size: 11.5px; }
+  #story .story-marker { fill: var(--viz-series-1); stroke: var(--card); stroke-width: 1.5; }
+  #story .story-legend-text { fill: var(--foreground); font-size: 12px; }
+
+  #story .story-citation { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 10px; max-width: 42rem; }
+  #story .story-citation p { margin: 0 0 4px; font-size: 12.5px; color: var(--muted-foreground); }
+  #story .story-citation-doi { font-family: var(--font-mono); font-size: 11px; }
+
+  #story .story-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 10px; }
+  #story .story-nav { min-width: 40px; min-height: 40px; font-size: 20px; border-radius: var(--radius-full); }
+  #story .story-dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 20rem; }
+  #story .story-dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: var(--muted); cursor: pointer; }
+  #story .story-dots button.is-current { background: var(--viz-series-1); }
+  #story .story-hint { text-align: center; font-size: 12px; color: var(--muted-foreground); margin: 6px 0 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #story .story-track { transition: none; }
+    #story .story-progress-seg::after { transition: none; }
+  }
+  @media (max-width: 560px) {
+    #story .story-slide { min-height: 420px; padding: 20px 16px; }
+    #story .story-dots { max-width: 14rem; }
+  }
+&lt;/style&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.getElementById(&#x27;story&#x27;);
+  const track = root.querySelector(&#x27;#story-track&#x27;);
+  const slides = Array.from(root.querySelectorAll(&#x27;.story-slide&#x27;));
+  const progressBar = root.querySelector(&#x27;#story-progress&#x27;);
+  const dotsContainer = root.querySelector(&#x27;#story-dots&#x27;);
+  const prevBtn = root.querySelector(&#x27;#story-prev&#x27;);
+  const nextBtn = root.querySelector(&#x27;#story-next&#x27;);
+  const positionLabel = root.querySelector(&#x27;#story-position&#x27;);
+  const total = slides.length;
+  let current = 0;
+  const drawn = new Set();
+
+  slides.forEach((slide, i) =&gt; {
+    const seg = document.createElement(&#x27;div&#x27;);
+    seg.className = &#x27;story-progress-seg&#x27;;
+    seg.dataset.seg = String(i);
+    progressBar.appendChild(seg);
+    const dot = document.createElement(&#x27;button&#x27;);
+    dot.type = &#x27;button&#x27;;
+    dot.setAttribute(&#x27;role&#x27;, &#x27;tab&#x27;);
+    dot.setAttribute(&#x27;aria-label&#x27;, `Go to slide ${i + 1} of ${total}`);
+    dot.addEventListener(&#x27;click&#x27;, () =&gt; goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+  const segs = Array.from(progressBar.children);
+  const dots = Array.from(dotsContainer.children);
+
+  function update() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    segs.forEach((seg, i) =&gt; {
+      seg.classList.toggle(&#x27;is-done&#x27;, i &lt; current);
+      seg.classList.toggle(&#x27;is-current&#x27;, i === current);
+    });
+    dots.forEach((dot, i) =&gt; dot.classList.toggle(&#x27;is-current&#x27;, i === current));
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    positionLabel.textContent = `(${current + 1} / ${total})`;
+    const chartKey = slides[current].dataset.chart;
+    if (chartKey &amp;&amp; !drawn.has(chartKey)) {
+      drawn.add(chartKey);
+      drawChart(chartKey);
+    }
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(total - 1, index));
+    update();
+  }
+
+  prevBtn.addEventListener(&#x27;click&#x27;, () =&gt; goTo(current - 1));
+  nextBtn.addEventListener(&#x27;click&#x27;, () =&gt; goTo(current + 1));
+  document.addEventListener(&#x27;keydown&#x27;, (event) =&gt; {
+    if (event.target instanceof HTMLElement &amp;&amp; /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) return;
+    if (event.key === &#x27;ArrowRight&#x27;) { goTo(current + 1); event.preventDefault(); }
+    if (event.key === &#x27;ArrowLeft&#x27;) { goTo(current - 1); event.preventDefault(); }
+  });
+
+  function barChart(svgId, titleId, descId, title, desc, data, opts) {
+    const svg = d3.select(root.querySelector(&#x27;#&#x27; + svgId));
+    const bounds = svg.node().getBoundingClientRect();
+    const width = Math.max(260, Math.floor(bounds.width));
+    const height = Math.max(160, Math.floor(bounds.height) || 200);
+    const margin = { top: 16, right: opts.suffixWidth || 56, bottom: 16, left: opts.labelWidth || 110 };
+    svg.attr(&#x27;viewBox&#x27;, `0 0 ${width} ${height}`).attr(&#x27;preserveAspectRatio&#x27;, &#x27;xMidYMid meet&#x27;);
+    svg.selectAll(&#x27;*&#x27;).remove();
+    svg.append(&#x27;title&#x27;).attr(&#x27;id&#x27;, titleId).text(title);
+    svg.append(&#x27;desc&#x27;).attr(&#x27;id&#x27;, descId).text(desc);
+
+    const y = d3.scaleBand().domain(data.map(d =&gt; d.label)).range([margin.top, height - margin.bottom]).padding(0.32);
+    const x = d3.scaleLinear().domain([0, opts.max]).range([margin.left, width - margin.right]);
+
+    const rows = svg.selectAll(&#x27;g.row&#x27;).data(data).join(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;row&#x27;);
+    rows.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-bar-label&#x27;).attr(&#x27;x&#x27;, margin.left - 8).attr(&#x27;y&#x27;, d =&gt; y(d.label) + y.bandwidth() / 2).attr(&#x27;dy&#x27;, &#x27;0.35em&#x27;).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).text(d =&gt; d.label);
+    const bars = rows.append(&#x27;rect&#x27;)
+      .attr(&#x27;class&#x27;, d =&gt; &#x27;story-bar&#x27; + (d.winner ? &#x27; is-winner&#x27; : &#x27;&#x27;))
+      .attr(&#x27;x&#x27;, x(0)).attr(&#x27;y&#x27;, d =&gt; y(d.label)).attr(&#x27;height&#x27;, y.bandwidth()).attr(&#x27;rx&#x27;, 4)
+      .attr(&#x27;width&#x27;, 0);
+    bars.transition().duration(650).ease(d3.easeCubicOut).attr(&#x27;width&#x27;, d =&gt; x(d.value) - x(0));
+    rows.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-bar-value&#x27;).attr(&#x27;x&#x27;, d =&gt; x(d.value) + 6).attr(&#x27;y&#x27;, d =&gt; y(d.label) + y.bandwidth() / 2).attr(&#x27;dy&#x27;, &#x27;0.35em&#x27;).attr(&#x27;text-anchor&#x27;, &#x27;start&#x27;)
+      .text(d =&gt; opts.format(d.value)).attr(&#x27;opacity&#x27;, 0).transition().delay(400).duration(300).attr(&#x27;opacity&#x27;, 1);
+  }
+
+  function lineChart(svgId, titleId, descId, title, desc, series, opts) {
+    const svg = d3.select(root.querySelector(&#x27;#&#x27; + svgId));
+    const bounds = svg.node().getBoundingClientRect();
+    const width = Math.max(280, Math.floor(bounds.width));
+    const height = Math.max(180, Math.floor(bounds.height) || 240);
+    const margin = Object.assign({ top: 18, right: 24, bottom: 40, left: 46 }, opts.margin || {});
+    svg.attr(&#x27;viewBox&#x27;, `0 0 ${width} ${height}`).attr(&#x27;preserveAspectRatio&#x27;, &#x27;xMidYMid meet&#x27;);
+    svg.selectAll(&#x27;*&#x27;).remove();
+    svg.append(&#x27;title&#x27;).attr(&#x27;id&#x27;, titleId).text(title);
+    svg.append(&#x27;desc&#x27;).attr(&#x27;id&#x27;, descId).text(desc);
+
+    const x = d3.scaleLinear().domain(opts.xDomain).range([margin.left, width - margin.right]);
+    const y = d3.scaleLinear().domain(opts.yDomain).range([height - margin.bottom, margin.top]);
+
+    svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis&#x27;).attr(&#x27;transform&#x27;, `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).ticks(opts.xTicks || 6).tickFormat(opts.xFormat || (d =&gt; d)));
+    svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis&#x27;).attr(&#x27;transform&#x27;, `translate(${margin.left},0)`)
+      .call(d3.axisLeft(y).ticks(opts.yTicks || 5).tickFormat(opts.yFormat || (d =&gt; d)));
+    if (opts.xLabel) svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis-title&#x27;).attr(&#x27;x&#x27;, (margin.left + width - margin.right) / 2).attr(&#x27;y&#x27;, height - 6).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(opts.xLabel);
+    if (opts.yLabel) svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-axis-title&#x27;).attr(&#x27;transform&#x27;, `translate(14 ${(margin.top + height - margin.bottom) / 2}) rotate(-90)`).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;).text(opts.yLabel);
+
+    (opts.hRefs || []).forEach(ref =&gt; {
+      svg.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-line&#x27;).attr(&#x27;x1&#x27;, margin.left).attr(&#x27;x2&#x27;, width - margin.right).attr(&#x27;y1&#x27;, y(ref.y)).attr(&#x27;y2&#x27;, y(ref.y));
+      svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-label&#x27;).attr(&#x27;x&#x27;, width - margin.right).attr(&#x27;y&#x27;, y(ref.y) - 5).attr(&#x27;text-anchor&#x27;, &#x27;end&#x27;).text(ref.label);
+    });
+    (opts.vRefs || []).forEach((ref, vi) =&gt; {
+      svg.append(&#x27;line&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-line&#x27;).attr(&#x27;y1&#x27;, margin.top).attr(&#x27;y2&#x27;, height - margin.bottom).attr(&#x27;x1&#x27;, x(ref.x)).attr(&#x27;x2&#x27;, x(ref.x));
+      const roomToRight = (width - margin.right) - x(ref.x);
+      const flip = roomToRight &lt; 130;
+      svg.append(&#x27;text&#x27;).attr(&#x27;class&#x27;, &#x27;story-ref-label&#x27;)
+        .attr(&#x27;x&#x27;, x(ref.x) + (flip ? -4 : 4)).attr(&#x27;y&#x27;, margin.top + 11 + vi * 13)
+        .attr(&#x27;text-anchor&#x27;, flip ? &#x27;end&#x27; : &#x27;start&#x27;).text(ref.label);
+    });
+
+    const line = d3.line().x(d =&gt; x(d.x)).y(d =&gt; y(d.y));
+    series.forEach((s, i) =&gt; {
+      const path = svg.append(&#x27;path&#x27;).datum(s.points).attr(&#x27;class&#x27;, &#x27;story-line &#x27; + (s.className || &#x27;story-line-predicted&#x27;)).attr(&#x27;d&#x27;, line);
+      const len = path.node().getTotalLength();
+      path.attr(&#x27;stroke-dasharray&#x27;, `${len} ${len}`).attr(&#x27;stroke-dashoffset&#x27;, len)
+        .transition().delay(i * 150).duration(700).ease(d3.easeCubicOut).attr(&#x27;stroke-dashoffset&#x27;, 0)
+        .on(&#x27;end interrupt&#x27;, function () { d3.select(this).attr(&#x27;stroke-dashoffset&#x27;, 0); });
+      if (s.showPoints) {
+        svg.selectAll(&#x27;circle.pt-&#x27; + i).data(s.points).join(&#x27;circle&#x27;).attr(&#x27;class&#x27;, &#x27;story-marker pt-&#x27; + i)
+          .attr(&#x27;cx&#x27;, d =&gt; x(d.x)).attr(&#x27;cy&#x27;, d =&gt; y(d.y)).attr(&#x27;r&#x27;, 0)
+          .transition().delay(500 + i * 150).duration(300).attr(&#x27;r&#x27;, 4.5);
+      }
+    });
+  }
+
+  function logKspAragonite(T_K) {
+    return -171.9773 - 0.077993 * T_K + 2903.293 / T_K + 71.595 * Math.log10(T_K);
+  }
+
+  function drawChart(key) {
+    if (key === &#x27;ksp-curve&#x27;) {
+      const temps = d3.range(0, 90.01, 2);
+      const points = temps.map(tc =&gt; ({ x: tc, y: logKspAragonite(tc + 273.15) }));
+      lineChart(&#x27;chart-ksp-curve&#x27;, &#x27;ksp-curve-title&#x27;, &#x27;ksp-curve-desc&#x27;,
+        &#x27;Aragonite solubility constant vs temperature&#x27;,
+        &#x27;A line chart of log base ten of the aragonite solubility constant against temperature from 0 to 90 degrees Celsius, computed from Plummer and Busenberg\&#x27;s 1982 published equation. The curve declines gently, showing aragonite becomes less soluble as temperature rises. A marker sits at 25 degrees Celsius.&#x27;,
+        [{ points, className: &#x27;story-line-predicted&#x27;, showPoints: false }],
+        { xDomain: [0, 90], yDomain: [-8.9, -8.0], xLabel: &#x27;Temperature (°C)&#x27;, yLabel: &#x27;log₁₀ Ksp&#x27;, xTicks: 6, yTicks: 5,
+          vRefs: [{ x: 25, label: &#x27;25 °C&#x27; }] });
+    }
+    if (key === &#x27;enthalpy-entropy&#x27;) {
+      barChart(&#x27;chart-enthalpy-entropy&#x27;, &#x27;enthalpy-entropy-title&#x27;, &#x27;enthalpy-entropy-desc&#x27;,
+        &#x27;Magnitude of enthalpy versus entropy term at 25 degrees Celsius&#x27;,
+        &#x27;A bar chart comparing the magnitude of the enthalpy term, 10.8 kilojoules per mole, against the magnitude of the temperature times entropy term, 58.4 kilojoules per mole, in the Gibbs energy equation for aragonite dissolution. The entropy term is more than five times larger.&#x27;,
+        [
+          { label: &#x27;|TΔS°|&#x27;, value: 58.4, winner: true },
+          { label: &#x27;|ΔH°|&#x27;, value: 10.8 }
+        ], { max: 65, format: d =&gt; d.toFixed(1) + &#x27; kJ/mol&#x27;, labelWidth: 56, suffixWidth: 70 });
+    }
+    if (key === &#x27;gibbs-omega&#x27;) {
+      const R = 8.314, T = 298.15;
+      const omegas = d3.range(0.3, 4.001, 0.1);
+      const points = omegas.map(w =&gt; ({ x: w, y: (R * T * Math.log(w)) / 1000 }));
+      lineChart(&#x27;chart-gibbs-omega&#x27;, &#x27;gibbs-omega-title&#x27;, &#x27;gibbs-omega-desc&#x27;,
+        &#x27;Gibbs energy of dissolution versus saturation state omega&#x27;,
+        &#x27;A line chart showing Delta G equals R T times the natural log of Omega, in kilojoules per mole, as a function of the saturation state Omega from 0.3 to 4. The curve crosses zero at Omega equals 1, the equilibrium point. A reference line marks Omega equals 2.92, the measured reef sediment tipping point reported by Eyre and colleagues in 2018, where Delta G is still slightly positive on this idealized curve.&#x27;,
+        [{ points, className: &#x27;story-line-predicted&#x27;, showPoints: false }],
+        { xDomain: [0.3, 4], yDomain: [-3.5, 4], xLabel: &#x27;Ω (saturation state)&#x27;, yLabel: &#x27;ΔG (kJ/mol)&#x27;, xTicks: 6, yTicks: 5,
+          hRefs: [{ y: 0, label: &#x27;ΔG = 0&#x27; }],
+          vRefs: [{ x: 1, label: &#x27;Ω = 1&#x27; }, { x: 2.92, label: &#x27;Reef tips: Ω ≈ 2.92&#x27; }] });
+    }
+  }
+
+  update();
+  new ResizeObserver(() =&gt; { drawn.forEach(key =&gt; drawChart(key)); }).observe(root.querySelector(&#x27;.story-viewport&#x27;));
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
