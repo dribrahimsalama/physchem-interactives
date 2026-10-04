@@ -15,6 +15,7 @@ gases/gas-laws/index.html                    Gas laws
 gases/real-gases/index.html                  Real gases (van der Waals)
 thermodynamics/enthalpy-entropy/index.html   Enthalpy & entropy
 thermodynamics/gibbs-energy/index.html       Gibbs energy
+thermodynamics/coral-reef-dissolution/index.html  Gibbs energy in practice: coral reef tipping point case study
 kinetics/rate-laws/index.html                Rate laws
 kinetics/arrhenius/index.html                Arrhenius equation
 kinetics/shelf-life-prediction/index.html    Arrhenius in practice: drug shelf-life case study
