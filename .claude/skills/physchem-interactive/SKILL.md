@@ -39,10 +39,20 @@ The site is plain static HTML/CSS/JS: no frameworks, build step, backend, login,
 
 ## Verification (do this before reporting done)
 
-Playwright and Chromium are available in cloud sessions. Serve the repo and drive the page:
-
 ```bash
 python3 -m http.server 8000 &
+pip install playwright   # once; Python bindings
+CHROMIUM_PATH=/opt/pw-browsers/chromium python3 .claude/skills/physchem-interactive/scripts/smoke_test.py \
+  --shots /tmp/shots <topic>/<slug>/index.html
 ```
 
-In a Playwright script: open the page at 360 px and 1280 px, capture `console` and `pageerror` events (must be none), move each slider and check the `<output>` and chart update, and take a screenshot to look at. Also open `index.html` and confirm the new card's link resolves.
+`smoke_test.py` checks each page at 360 px and 1280 px for console and page errors, horizontal overflow, a rendered chart, and that every slider visibly changes the page. It exits 1 on failure. Then look at the screenshots yourself, since the script can't judge whether a chart is sensible.
+
+If the sandbox blocks cdn.jsdelivr.net (symptom: `d3 is not defined`), fetch D3 through npm and inject it:
+
+```bash
+npm pack d3@7.9.0 && tar xzf d3-7.9.0.tgz package/dist/d3.min.js
+# add: --d3 package/dist/d3.min.js
+```
+
+Also open the root `index.html` and confirm the new card's link resolves.
